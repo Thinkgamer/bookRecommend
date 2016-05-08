@@ -1,0 +1,205 @@
+/* Reset CSS */
+/*通用部分*/
+*{
+	margin: 0;
+	padding: 0;
+}
+.center{
+   margin:0 auto;
+}
+body {
+	background: #DCDDDF url(http://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
+	color: #000;
+	font-family: "微软雅黑";
+}
+/*左上角显示用户部分*/
+.user{
+	width: 100%;
+	height:30px;
+    background-color: #00aeef;
+}
+.user p{
+    font-size: 18px;
+}
+/*中间推荐部分*/
+.recommend{
+	width:100%;
+    margin-top: 30px;
+}
+/*选择模块功能部分*/
+.choose{
+    font-size: 27px;
+    width: 250px;
+}
+.choose a{
+    text-decoration: none;
+    background-color: #f9f9f9;
+	-webkit-box-shadow: 3px 3px 10px #F7002F;
+	box-shadow: 3px 3px 10px #FFE4C4;
+
+}
+.choose a:hover{
+    font-size: 28px;
+    color: #00aeef;
+    background-color: coral;
+    text-decoration: none;
+}
+
+/*显示结果列表*/
+.list{
+    margin-top: 20px;
+    width: 960px;
+	min-height:500px;
+}
+.list_table{
+    width: 100%;
+    font-size: 20px;
+    color: #ed1c24;
+}
+
+/*底部*/
+.foot{
+    width:400px;
+    height:25px;
+	line-height: 25px;
+	font-size: 15px;
+}
+
+
+
+
+
+
+
+
+/*
+.head{
+	height: 70px;
+	width: 100%;
+	padding: 0 auto;
+	position: fixed;
+}
+.title{
+	margin-top: 60px;
+}
+li{
+	cursor: pointer;
+	list-style-type: none;
+}
+li>a{
+	height: 60px;
+	line-height: 60px;
+	font-size: 30px;
+	margin-left: 40px;
+	color:white;
+	text-decoration: none;
+	background-color: black;
+	border-radius: 5px;
+}
+
+.h_r{
+	float: right;
+	margin-right: 50px;
+}
+.h_l{
+	float: left;
+	margin-left: 10px;
+}
+.hr{
+	border: 1px #FFE4C4 solid;
+	-webkit-box-shadow: 3px 3px 10px #F7002F;
+	box-shadow: 3px 3px 10px #FFE4C4;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
+.main{
+	margin-top: 30px;
+	width: 80%;
+	height:600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.author{
+	float: left;
+	width: 35%;
+	height: 100%;
+	border: 1px #FFE4C4 solid;
+	-webkit-box-shadow: 3px 3px 10px #F7002F;
+	box-shadow: 3px 3px 10px #F7002F;
+}
+.ap{
+	height: 50px;
+	margin-right: auto;
+}
+.ap a{
+	font-size: 25px;
+	text-decoration: none;
+	color:#00FFFF;
+}
+.ap a:hover{
+	color:#FF0000;
+}
+
+.blog{
+	float: right;
+	width: 60%;
+	height: 100%;
+	border: 1px #FFE4C4 solid;
+	-webkit-box-shadow: 3px 3px 10px #00FFFF;
+	box-shadow: 3px 3px 10px #00FFFF;
+}
+.bp{
+	height: 50px;
+	margin-right: auto;
+}
+.bp a{
+	font-size: 25px;
+	text-decoration: none;
+	color:#e54d4b;
+}
+.bp a:hover{
+	color:#0000CC;
+}
+
+
+
+.foot{
+	margin-top: 50px;
+	width: 100%;
+	height: 200px;
+	text-align: center;
+	margin-bottom: 0;
+	position: relative;
+}
+.f_u{
+	height: 170px;
+	width: 100%;
+	background-color: darkgray;
+}
+.f_d{
+	width: 100%;
+	height: 30px;
+	background-color: grey;
+}
+.u_1,.u_2,.u_3{
+	float: left;
+	width: 33%;
+	height: 160px;
+	text-align: center;
+	font-size: 22px;
+}
+.u{
+	width: 99%;
+	height: 75px;
+	line-height: 75px;
+}
+.f_z{
+	color: white;
+	height: 25px;
+	line-height: 25px;
+	font-size: 15px;
+}
+*/

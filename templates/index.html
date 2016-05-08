@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <title>为你推荐</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css" />
+    <script>
+    {% if not name %}
+        alert("你还没有登录，请先登录....");
+        window.location.href="/login/login";
+    {% endif %}
+    </script><!--判断是否有用户登录，若无则弹出相应的信息，并返回登录界面-->
+</head>
+<body>
+    <div class="user">
+        <p>当前用户：{{ name }} | <a href="/login/login">注销</a></p>
+    </div><!--左上角用户登录状态-->
+
+    <div class="recommend">
+        <div class="choose center">
+            <a href="/index/index/{{ name }}" style="background-color: {{ color1 }}">为你推荐</a>
+            <a href="/index/hot/{{ name }}" style="background-color: {{ color2 }}">热门图书</a>
+        </div><!--选择功能部分-->
+        <div class="list center">
+            <table class="list_table" border="1">
+                <tr>
+                    <td align="center">书名</td>
+                    <td align="center">书 ID</td>
+                    <td align="center">评论人数</td>
+                    <td align="center">综合评分</td>
+                </tr>
+                {% if flag %}
+                    {% for bid,v in bookdic.iteritems %}
+                        <tr>
+                            <td align="center"><a href="https://book.douban.com/subject/{{ bid }}" target="_blank">{{ v.bname }}</a></td>
+                            <td align="center">{{ bid }}</td>
+                            <td align="center">{{ v.bdisnum }}</td>
+                            <td align="center">{{ v.bscore }}</td>
+                        </tr>
+                    {% endfor %}
+                {% elif not flag%}
+                    {% for one in booklist %}
+                        <tr>
+                            <td align="center"><a href="https://book.douban.com/subject/{{ one.bid }}" target="_blank">{{ one.bname }}</a></td>
+                            <td align="center">{{ one.bid }}</td>
+                            <td align="center">{{ one.bdisnum }}</td>
+                            <td align="center">{{ one.bscore }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </table><!--放在表格中显示-->
+
+        </div><!--列表部分-->
+    </div><!--中间显示推荐部分-->
+
+    <div class="foot center">
+        <span>made by CyansCikit  |  @copyright2015/05/07</span>
+    </div><!--底部显示-->
+</body>
+</html>
