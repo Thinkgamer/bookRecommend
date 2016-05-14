@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图书推荐系统</title>
+<link rel="stylesheet" type="text/css" href="/static/css/details.css" />
+
+</head>
+<body>
+    <div id="wrap">
+        <div class="header">
+            <div class="logo"><a href="/index/index/{{ uid }}"><img src="/static/image/logo.gif" alt="" title="" border="0" /></a></div>
+            <div id="menu">
+                <ul>
+                <li class="selected"><a href="/index/index/{{ uid }}">首页</a></li>
+                <li><a href="/index/more/{{ uid }}">猜你喜欢</a></li>
+                <li><a href="/index/hot/{{ uid }}">Hot榜</a></li>
+                <li><a href="/index/new/{{ uid }}">新书速递</a></li>
+                <li style="float: right"><a href="/login/login">注销</a></li>
+                <li style="float: right"><a href="/login/center/{{ uid }}">用户：{{ username }}</a></li>
+                </ul>
+            </div>
+        </div>
+       
+        <div class="center_content">
+       	    <div class="left_content">
+    	        <div class="title">
+                    <span class="title_icon"><img src="/static/image/bullet1.gif" alt="" title="" /></span>{{ onebook.bname }}
+                </div><br><br><br><br>
+
+                <div class="book">
+                    <div class="img_left">
+                        <img src="/static/image/book/{{ onebook.bid }}.jpg" width="150px" height="200px">
+                    </div>
+
+                    <div class="details_right">
+                        <div class="d_left center">
+                            <h2>相关信息</h2>
+                            <p><span>书名</span>：{{ onebook.bname }}</p>
+                            <p><span>作者</span>：{{ onebook.bauthor }}</p>
+                            <p><span>译者</span>：{{ onebook.btrans }}</p>
+                            <p><span>出版社</span>：{{ onebook.bpublish }}</p>
+                            <p><span>出版时间</span>：{{ onebook.bpdate }}</p>
+                            <p><span>评分</span>：{{ onebook.bscore}}分</p>
+                            <p><span>评论人数</span>：{{ onebook.bdisnum }}人</p>
+                        </div>
+                        <div class="d_right center">
+                            <h2>货比三家</h2>
+                            {% for buy in onebookbuy %}
+                                <p>{{ buy.store }}：{{ buy.price }} &nbsp;&nbsp;&nbsp; 【<a href="{{ buy.bhref }}" target="_blank">点击购买</a>】</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="intrduce_buttom">
+                        <h2>简介：</h2>
+                        <p>{{ onebook.bshow }}</p>
+                    </div>
+                </div>
+                <hr style="border: 1px #9edeff solid;width: 100%">
+                <div class="title">
+                    <span class="title_icon"><img src="/static/image/bullet2.gif" alt="" title="" /></span>浏览过该书的还浏览过：
+                </div>
+                <div class="new_products">
+                    {% for one in otherbook_list %}
+                    <div class="new_prod_box">
+                        <a href="">《{{ one.bname }}》</a>
+                        <div class="new_prod_bg">
+                            <a href="details.html"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title="" class="thumb" border="0" /></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="clear"></div>
+            </div><!--end of left content-->
+        
+            <div class="right_content">
+                <div class="right_box">
+                    <div class="title">
+                        <span class="title_icon"><img src="/static/image/bullet5.gif" alt="" title="" /></span>
+                        用户推荐<span style="font-size: 15px;color: tomato">【推荐指数】</span>
+                    </div>
+
+                    <ul class="list">
+                        {% for one in usersim_list %}
+                            <li><a href="">{{ one.username }}</a><span style="font-size: 15px;color: tomato">【{{ one.usersim }}%】</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div><!--end of right content-->
+
+        <div class="clear"></div>
+    </div><!--end of center content-->
+       
+    <div class="footer">
+        <div class="left_footer"><img src="/static/image/footer_logo.gif" alt="" title="" /><br /> <a href="http://www.cssmoban.com/" title="free templates">cssmoban</a></div>
+        <div class="right_footer">
+            <a href="/index/index/{{ uid }}">首页</a>
+            <a href="/index/more/{{ uid }}">猜你喜欢</a>
+            <a href="/index/hot/{{ uid }}">Hot榜</a>
+            <a href="/index/new/{{ uid }}">新书速递</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

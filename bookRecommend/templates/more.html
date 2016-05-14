@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图书推荐系统</title>
+<link rel="stylesheet" type="text/css" href="/static/css/more.css" />
+<script>
+    var a=document.getElementById("slider");
+  	function goin(a){
+  		var b=document.getElementById(a);
+  		if(b.hasAttribute("class")){
+       		b.removeAttribute("class","dis");
+        }
+
+    }
+    function goout(a){
+        var b=document.getElementById(a);
+        if(!b.hasAttribute("class")){
+       		b.setAttribute("class","dis");
+       	}
+
+    }
+</script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="header">
+            <div class="logo"><a href="/index/index/{{ uid }}"><img src="/static/image/logo.gif" alt="" title="" border="0" /></a></div>
+            <div id="menu">
+                <ul>
+                <li class="selected"><a href="/index/index/{{ uid }}">首页</a></li>
+                <li><a href="/index/index/{{ uid }}">猜你喜欢</a></li>
+                <li><a href="/index/hot/{{ uid }}">Hot榜</a></li>
+                <li><a href="/index/new/{{ uid }}">新书速递</a></li>
+                <li style="float: right"><a href="/login/login">注销</a></li>
+                <li style="float: right"><a href="/login/center/{{ uid }}">{{ username }}</a>|</li>
+                </ul>
+            </div>
+        </div>
+       
+        <div class="center_content">
+       	    <div class="left_content">
+    	        <div class="title">
+                    <span class="title_icon"><img src="/static/image/bullet1.gif" alt="" title="" /></span>{{ title }}
+                </div>
+                <br /><br /><br /><br /><br />
+                {% for one in book_list %}
+                <div  class="ulli">
+
+                    <div class="feat_prod_box">
+                        <div class="dis"  id="{{ one.bid }}">
+                            <div class="img">
+                                <h2>推荐理由</h2>
+                                <p>用户{{ one.uname }}与你的匹配度为{{ one.sim }}</p><p>该用户给此书《{{ one.bname }}》打了{{ one.score }}分，特为你推荐</p>
+                            </div>
+                        </div>
+
+                        {% if one.bdisnum and one.btime %}
+                        <div class="prod_img" onmouseover="goin({{ one.bid }})" onmouseleave="goout({{ one.bid }})"><a href="/index/details/{{ uid }}/{{ one.bid }}"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title="" border="0" /></a></div>
+                        {% else %}
+                        <div class="prod_img"><a href="/index/details/{{ uid }}/{{ one.bid }}"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title="" border="0" /></a></div>
+                        {% endif %}
+                        <div class="prod_det_box">
+                            <div class="box_top"></div>
+                            <div class="box_center">
+                                <div class="prod_title">
+                                    《{{ one.bname }}》 <br><span style="color: blue; margin-left: 40%">
+                                    {% if one.bdisnum  and one.btime%}
+
+                                    {% elif one.btime %}
+                                        出版时间：{{one.btime | date:"Y-F"}}
+                                    {% elif one.bdisnum  %}
+                                        评论次数：{{one.bdisnum}}
+                                    {% endif %}
+                                </span>
+                                </div>
+                                    <p class="details">{{ one.bshow }}</p>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <a href="/index/details/{{ uid }}/{{ one.bid }}" class="more">- more details -</a>
+                        <div class="clear"></div><br />
+                    </div>
+                </div>
+                {% endfor %}
+            </div><!--end of left content-->
+        
+        <div class="right_content">
+
+            <div class="right_box">
+                <div class="title"><span class="title_icon"><img src="/static/image/bullet5.gif" alt="" title="" /></span>用户推荐
+                <br/><span style="font-size: 15px;color: tomato">【推荐指数】</span></div>
+                <ul class="list">
+                    {% for one in usersim_list %}
+                    <li><a href="">{{ one.username }}</a></li>
+                    <br><span style="font-size: 15px;color: tomato">【{{ one.usersim }}%】</span>
+                    {% endfor %}
+                </ul>
+             </div>         
+        </div><!--end of right content-->
+
+        <div class="clear"></div>
+        </div><!--end of center content-->
+       
+              
+        <div class="footer">
+            <div class="left_footer"><img src="/static/image/footer_logo.gif" alt="" title="" /><br /> <a href="http://www.cssmoban.com/" title="free templates">cssmoban</a></div>
+            <div class="right_footer">
+            <a href="/index/index/{{ uid }}">首页</a>
+            <a href="/index/more/{{ uid }}">猜你喜欢</a>
+            <a href="/index/hot/{{ uid }}">Hot榜</a>
+            <a href="/index/new/{{ uid }}">新书速递</a>
+            </div>
+        </div>
+
+</div>
+
+</body>
+</html>
