@@ -56,10 +56,10 @@ def getSimUser(uid_list):
     db,cursor = connect()
     for uid in uid_list:
         simValue = float(uid[1]) * 100
-        sql = "select username from user where userid='"+uid[0]+"'"
+        sql = "select username,userid from user where userid='"+uid[0]+"'"
         cursor.execute(sql)
         for row in cursor.fetchall():
-            uname_list.append({"username":row[0],"usersim":str("%.1f" % simValue)})
+            uname_list.append({"username":row[0],"usersim":str("%.1f" % simValue),"userid":row[1]})
     close(db,cursor)
     return uname_list
 
@@ -76,6 +76,7 @@ def getOtherBook(bid):
     return otherbook_list
 
 def getseeBook(uid):
+    havesee=[]
     from login.views import connect, close
     book_list = []
     db,cursor = connect()
@@ -83,10 +84,12 @@ def getseeBook(uid):
     cursor.execute(sql)
     for row in cursor.fetchall():
         bid = row[0]
-        sql_1 = "select bookid,bookname,bookshow from book where bookid = '"+bid+"'"
-        cursor.execute(sql_1)
-        for row_1 in cursor.fetchall():
-            book_list.append({"bid":row_1[0],"bname":row_1[1],"bshow":row_1[2]})
+        if bid not in havesee:
+            havesee.append(bid)
+            sql_1 = "select bookid,bookname,bookshow from book where bookid = '"+bid+"'"
+            cursor.execute(sql_1)
+            for row_1 in cursor.fetchall():
+                book_list.append({"bid":row_1[0],"bname":row_1[1],"bshow":row_1[2]})
 
     close(db,cursor)
     return book_list

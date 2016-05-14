@@ -45,7 +45,12 @@
         <div class="center_content">
        	    <div class="left_content">
     	        <div class="title">
-                    <span class="title_icon"><img src="/static/image/bullet1.gif" alt="" title="" /></span>{{ title }}
+                    <span class="title_icon"><img src="/static/image/bullet1.gif" alt="" title="" /></span>
+                    {% if othername %}
+                    {{ othername }}|{{ title }}
+                    {% else %}
+                    {{ username }}|{{ title }}
+                    {% endif %}
                 </div>
                 <br /><br /><br /><br /><br />
                 {% for one in book_list %}
@@ -62,7 +67,7 @@
                         {% if one.bdisnum and one.btime %}
                         <div class="prod_img" onmouseover="goin({{ one.bid }})" onmouseleave="goout({{ one.bid }})"><a href="/index/details/{{ uid }}/{{ one.bid }}"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title="" border="0" /></a></div>
                         {% else %}
-                        <div class="prod_img"><a href="/index/details/{{ uid }}/{{ one.bid }}"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title="" border="0" /></a></div>
+                        <div class="prod_img"><a href="/index/details/{{ uid }}/{{ one.bid }}"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title="" border="0"/></a></div>
                         {% endif %}
                         <div class="prod_det_box">
                             <div class="box_top"></div>
@@ -95,7 +100,7 @@
                 <br/><span style="font-size: 15px;color: tomato">【推荐指数】</span></div>
                 <ul class="list">
                     {% for one in usersim_list %}
-                    <li><a href="">{{ one.username }}</a></li>
+                    <li><a href="/login/otherCen/{{ uid }}/{{ one.userid }}">{{ one.username }}</a><br>
                     <br><span style="font-size: 15px;color: tomato">【{{ one.usersim }}%】</span>
                     {% endfor %}
                 </ul>

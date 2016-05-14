@@ -83,7 +83,7 @@
 
                     <ul class="list">
                         {% for one in usersim_list %}
-                            <li><a href="">{{ one.username }}</a><span style="font-size: 15px;color: tomato">【{{ one.usersim }}%】</span></li>
+                            <li><a href="/login/otherCen/{{ uid }}/{{ one.userid }}">{{ one.username }}</a><br><span style="font-size: 15px;color: tomato">【{{ one.usersim }}%】</span></li>
                         {% endfor %}
                     </ul>
                 </div>

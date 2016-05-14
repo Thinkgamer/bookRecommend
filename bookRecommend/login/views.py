@@ -44,7 +44,7 @@ def login(request):
                 userrecommend.setSeeBook(getseeBook(row[1]))
 
                 return HttpResponseRedirect("/index/index/%s" % row[1])
-        #不存在fanhuilogin并提sta示错误
+        #不存在返回login并提sta示错误
         return render_to_response("login.html",{
             'error':"你输入的用户不存在，请重新输入",
         })
@@ -72,18 +72,36 @@ def see(request):
     })
 
 def center(request,uid):
-    print "uid",uid
     #获得相似用户列表
     uid_list=userrecommend.userid_list
     usersim_list = get.getSimUser(uid_list)
 
     username = getName(uid)
     return render_to_response("more.html",{
-        "title":"我的足迹",
+        "title":"足迹",
         "username":username,
         "uid":uid,
         "usersim_list":usersim_list,
         "book_list":userrecommend.seeBook_list,
+    })
+
+
+def otherCen(request,uid,otherid):
+    #获得相似用户列表
+    uid_list=userrecommend.userid_list
+    usersim_list = get.getSimUser(uid_list)
+
+    username = getName(uid)
+    othername = getName(otherid)
+    #获取otherid的读过的的书列表
+
+    return render_to_response("more.html",{
+        "title":"足迹",
+        "username":username,
+        "othername":othername,
+        "uid":uid,
+        "usersim_list":usersim_list,
+        "book_list":getseeBook(otherid),
     })
 
 def see(request):
