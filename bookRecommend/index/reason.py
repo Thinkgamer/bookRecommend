@@ -32,7 +32,5 @@ def getReason():
                     reason.append({"name":uname, "id":bid, "score":bscore, "simv":sim})
                     break
                 break
-    for r in reason:
-        print r.get("name"), r.get("id"), r.get("score"), r.get("simv")
 
     return reason

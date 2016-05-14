@@ -85,3 +85,13 @@ def center(request,uid):
         "usersim_list":usersim_list,
         "book_list":userrecommend.seeBook_list,
     })
+
+def see(request):
+
+    from index.newbook import getHotBook
+    #获得hot book列表
+    hotBook_list =getHotBook()
+    return render_to_response("more.html",{
+        "title":"随便看看",
+        "book_list":hotBook_list,
+    })
