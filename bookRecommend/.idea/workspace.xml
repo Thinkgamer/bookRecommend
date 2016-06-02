@@ -25,55 +25,100 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/views.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-              <folding>
-                <element signature="e#20#88#0" expanded="true" />
-                <marker date="1463213916666" expanded="true" signature="814:846" placeholder="select usern..user..." />
-                <marker date="1463213916666" expanded="true" signature="1591:1609" placeholder="select * fro..book..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bookRecommend/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="107" column="2" selection-start-line="107" selection-start-column="2" selection-end-line="107" selection-end-column="2" />
+              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index/views.py">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/default/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.29752067">
+              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
               <folding>
-                <element signature="e#20#67#0" expanded="true" />
-                <element signature="e#217#449#0" expanded="false" />
-                <element signature="e#485#1093#0" expanded="false" />
-                <element signature="e#1122#1560#0" expanded="false" />
-                <element signature="e#1596#2145#0" expanded="false" />
-                <element signature="e#2174#2635#0" expanded="false" />
-                <element signature="e#2663#3076#0" expanded="false" />
-                <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
+                <element signature="e#20#101#0" expanded="true" />
+                <element signature="e#388#963#0" expanded="false" />
+                <element signature="e#1345#1700#0" expanded="false" />
+                <element signature="e#1743#1945#0" expanded="false" />
+                <element signature="e#1994#2799#0" expanded="false" />
+                <element signature="e#2843#3549#0" expanded="false" />
+                <element signature="e#3602#4792#0" expanded="false" />
+                <element signature="e#4836#5500#0" expanded="false" />
+                <element signature="e#5562#7671#0" expanded="false" />
+                <element signature="e#7715#7905#0" expanded="false" />
+                <marker date="1464851501190" expanded="true" signature="548:588" placeholder="select * fro..adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="548:597" placeholder="select * fro..adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="548:601" placeholder="select * fro..adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="548:611" placeholder="select * fro..adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="548:619" placeholder="select * fro..adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="1074:1087" placeholder="select * fro..." />
+                <marker date="1464851501190" expanded="true" signature="1431:1454" placeholder="select * fro..adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="1776:1814" placeholder="delete from ..." />
+                <marker date="1464851501190" expanded="true" signature="1776:1824" placeholder="delete from ..." />
+                <marker date="1464851501190" expanded="true" signature="2196:2205" placeholder="select * fro..." />
+                <marker date="1464851501190" expanded="true" signature="2196:2225" placeholder="select * fro..adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="2196:2238" placeholder="select * fro..adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="2196:2247" placeholder="select * fro..adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="2442:2471" placeholder="insert into adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="2442:2472" placeholder="insert into adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="2442:2483" placeholder="insert into adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="2442:2492" placeholder="insert into adminuser..." />
+                <marker date="1464851501190" expanded="true" signature="2914:2952" placeholder="select * fro..book..." />
+                <marker date="1464851501190" expanded="true" signature="4905:4946" placeholder="select * fro..book..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6376" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6386" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6419" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6420" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6432" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6433" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6458" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6467" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6477" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6514" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6523" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6557" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6568" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6603" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6614" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6640" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6648" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6660" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6661" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6693" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6703" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6740" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6748" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6348:6749" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="6773:6934" placeholder="update book ..." />
+                <marker date="1464851501190" expanded="true" signature="7114:7147" placeholder="select * fro..book..." />
+                <marker date="1464851501190" expanded="true" signature="7114:7155" placeholder="select * fro..book..." />
+                <marker date="1464851501190" expanded="true" signature="7748:7779" placeholder="delete from ..." />
+                <marker date="1464851501190" expanded="true" signature="7748:7787" placeholder="delete from ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.5166373">
-              <caret line="126" column="30" selection-start-line="126" selection-start-column="30" selection-end-line="126" selection-end-column="30" />
-              <caret line="126" column="28" selection-start-line="126" selection-start-column="28" selection-end-line="126" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="173" column="90" selection-start-line="173" selection-start-column="90" selection-end-line="173" selection-end-column="90" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/admin.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="118" column="1" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -84,39 +129,47 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bookRecommend/urls.py" />
-        <option value="$PROJECT_DIR$/static/css/login.css" />
         <option value="$PROJECT_DIR$/static/css/index.css" />
         <option value="$PROJECT_DIR$/static/file/douban_users31-.txt" />
         <option value="$PROJECT_DIR$/index/uid_score_bid" />
-        <option value="$PROJECT_DIR$/templates/see.html" />
         <option value="$PROJECT_DIR$/static/js/effects.js" />
-        <option value="$PROJECT_DIR$/bookRecommend/settings.py" />
         <option value="$PROJECT_DIR$/index/urls.py" />
         <option value="$PROJECT_DIR$/static/css/more.css" />
-        <option value="$PROJECT_DIR$/login/globalUse.py" />
         <option value="$PROJECT_DIR$/static/css/details.css" />
-        <option value="$PROJECT_DIR$/index/basedUserCF.py" />
         <option value="$PROJECT_DIR$/index/newbook.py" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/index/reason.py" />
-        <option value="$PROJECT_DIR$/templates/login.html" />
-        <option value="$PROJECT_DIR$/index/views.py" />
-        <option value="$PROJECT_DIR$/login/urls.py" />
-        <option value="$PROJECT_DIR$/templates/details.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/login/views.py" />
-        <option value="$PROJECT_DIR$/index/details.py" />
         <option value="$PROJECT_DIR$/templates/more.html" />
+        <option value="$PROJECT_DIR$/login/urls.py" />
+        <option value="$PROJECT_DIR$/templates/see.html" />
+        <option value="$PROJECT_DIR$/index/details.py" />
+        <option value="$PROJECT_DIR$/index/basedUserCF.py" />
+        <option value="$PROJECT_DIR$/login/globalUse.py" />
+        <option value="$PROJECT_DIR$/bookRecommend/urls.py" />
+        <option value="$PROJECT_DIR$/index/other.py" />
+        <option value="$PROJECT_DIR$/templates/details.html" />
+        <option value="$PROJECT_DIR$/index/basedItem.py" />
+        <option value="$PROJECT_DIR$/static/css/login.css" />
+        <option value="$PROJECT_DIR$/bookRecommend/settings.py" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/templates/regeister.html" />
+        <option value="$PROJECT_DIR$/login/views.py" />
+        <option value="$PROJECT_DIR$/templates/adminlogin.html" />
+        <option value="$PROJECT_DIR$/index/views.py" />
+        <option value="$PROJECT_DIR$/default/urls.py" />
+        <option value="$PROJECT_DIR$/static/css/admin.css" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/admin.html" />
+        <option value="$PROJECT_DIR$/default/views.py" />
       </list>
     </option>
   </component>
@@ -127,8 +180,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
+    <option name="width" value="1370" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -172,6 +224,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -229,6 +282,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bookRecommend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bookRecommend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="login" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -257,13 +328,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bookRecommend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bookRecommend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="bookRecommend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,11 +360,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\github\bookRecommend\bookRecommend\templates" />
+      <recent name="E:\github\bookRecommend\bookRecommend\default" />
       <recent name="E:\Thinkgamer(Items)\python\bookRecommend\index" />
       <recent name="E:\Thinkgamer(Items)\python\bookRecommend\static\css" />
       <recent name="E:\Thinkgamer(Items)\python\bookRecommend\templates" />
-      <recent name="E:\Thinkgamer(Items)\python\bookRecommend\static\image" />
-      <recent name="E:\Thinkgamer(Items)\python\bookRecommend\static\js" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.bookRecommend">
@@ -542,10 +626,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="0" width="1370" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17862372" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17799114" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31861198" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -598,116 +682,19 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#20#67#0" expanded="true" />
-            <element signature="e#217#449#0" expanded="false" />
-            <element signature="e#485#1093#0" expanded="false" />
-            <element signature="e#1122#1560#0" expanded="false" />
-            <element signature="e#1596#2145#0" expanded="false" />
-            <element signature="e#2174#2635#0" expanded="false" />
-            <element signature="e#2663#3076#0" expanded="false" />
-            <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
           <folding>
-            <element signature="e#20#88#0" expanded="true" />
-            <marker date="1463213916666" expanded="true" signature="814:846" placeholder="select usern..user..." />
-            <marker date="1463213916666" expanded="true" signature="1591:1609" placeholder="select * fro..book..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="62" selection-end-column="6" />
-          <folding>
-            <element signature="e#20#67#0" expanded="true" />
-            <element signature="e#217#449#0" expanded="false" />
-            <element signature="e#485#1093#0" expanded="false" />
-            <element signature="e#1122#1560#0" expanded="false" />
-            <element signature="e#1596#2145#0" expanded="false" />
-            <element signature="e#2174#2635#0" expanded="false" />
-            <element signature="e#2663#3076#0" expanded="false" />
-            <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
-          <folding>
-            <element signature="e#20#88#0" expanded="true" />
-            <marker date="1463213916666" expanded="true" signature="814:846" placeholder="select usern..user..." />
-            <marker date="1463213916666" expanded="true" signature="1591:1609" placeholder="select * fro..book..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="62" selection-end-column="6" />
-          <folding>
-            <element signature="e#20#67#0" expanded="true" />
-            <element signature="e#217#449#0" expanded="false" />
-            <element signature="e#485#1093#0" expanded="false" />
-            <element signature="e#1122#1560#0" expanded="false" />
-            <element signature="e#1596#2145#0" expanded="false" />
-            <element signature="e#2174#2635#0" expanded="false" />
-            <element signature="e#2663#3076#0" expanded="false" />
-            <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
-          <folding>
-            <element signature="e#20#88#0" expanded="true" />
-            <marker date="1463213916666" expanded="true" signature="814:846" placeholder="select usern..user..." />
-            <marker date="1463213916666" expanded="true" signature="1591:1609" placeholder="select * fro..book..." />
+            <marker date="1464753447729" expanded="true" signature="882:914" placeholder="select usern..user..." />
+            <marker date="1464753447729" expanded="true" signature="2327:2351" placeholder="insert into user..." />
+            <marker date="1464753447729" expanded="true" signature="2327:2360" placeholder="insert into user..." />
           </folding>
         </state>
       </provider>
@@ -723,16 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
-          <folding>
-            <element signature="e#20#67#0" expanded="true" />
-            <element signature="e#217#449#0" expanded="false" />
-            <element signature="e#485#1093#0" expanded="false" />
-            <element signature="e#1122#1560#0" expanded="false" />
-            <element signature="e#1596#2145#0" expanded="false" />
-            <element signature="e#2174#2635#0" expanded="false" />
-            <element signature="e#2663#3076#0" expanded="false" />
-            <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -741,9 +718,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#20#88#0" expanded="true" />
-            <marker date="1463213916666" expanded="true" signature="814:846" placeholder="select usern..user..." />
-            <marker date="1463213916666" expanded="true" signature="1591:1609" placeholder="select * fro..book..." />
+            <marker date="1464753447729" expanded="true" signature="882:914" placeholder="select usern..user..." />
+            <marker date="1464753447729" expanded="true" signature="2327:2351" placeholder="insert into user..." />
+            <marker date="1464753447729" expanded="true" signature="2327:2360" placeholder="insert into user..." />
           </folding>
         </state>
       </provider>
@@ -759,16 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#20#67#0" expanded="true" />
-            <element signature="e#217#449#0" expanded="false" />
-            <element signature="e#485#1093#0" expanded="false" />
-            <element signature="e#1122#1560#0" expanded="false" />
-            <element signature="e#1596#2145#0" expanded="false" />
-            <element signature="e#2174#2635#0" expanded="false" />
-            <element signature="e#2663#3076#0" expanded="false" />
-            <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -783,16 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="e#20#67#0" expanded="true" />
-            <element signature="e#217#449#0" expanded="false" />
-            <element signature="e#485#1093#0" expanded="false" />
-            <element signature="e#1122#1560#0" expanded="false" />
-            <element signature="e#1596#2145#0" expanded="false" />
-            <element signature="e#2174#2635#0" expanded="false" />
-            <element signature="e#2663#3076#0" expanded="false" />
-            <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -801,9 +758,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#20#88#0" expanded="true" />
-            <marker date="1463213916666" expanded="true" signature="814:846" placeholder="select usern..user..." />
-            <marker date="1463213916666" expanded="true" signature="1591:1609" placeholder="select * fro..book..." />
+            <marker date="1464753447729" expanded="true" signature="882:914" placeholder="select usern..user..." />
+            <marker date="1464753447729" expanded="true" signature="2327:2351" placeholder="insert into user..." />
+            <marker date="1464753447729" expanded="true" signature="2327:2360" placeholder="insert into user..." />
           </folding>
         </state>
       </provider>
@@ -819,16 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="e#20#67#0" expanded="true" />
-            <element signature="e#217#449#0" expanded="false" />
-            <element signature="e#485#1093#0" expanded="false" />
-            <element signature="e#1122#1560#0" expanded="false" />
-            <element signature="e#1596#2145#0" expanded="false" />
-            <element signature="e#2174#2635#0" expanded="false" />
-            <element signature="e#2663#3076#0" expanded="false" />
-            <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -836,16 +783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#20#67#0" expanded="true" />
-            <element signature="e#217#449#0" expanded="false" />
-            <element signature="e#485#1093#0" expanded="false" />
-            <element signature="e#1122#1560#0" expanded="false" />
-            <element signature="e#1596#2145#0" expanded="false" />
-            <element signature="e#2174#2635#0" expanded="false" />
-            <element signature="e#2663#3076#0" expanded="false" />
-            <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -860,16 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="90" selection-start-line="15" selection-start-column="90" selection-end-line="15" selection-end-column="90" />
-          <folding>
-            <element signature="e#20#67#0" expanded="true" />
-            <element signature="e#217#449#0" expanded="false" />
-            <element signature="e#485#1093#0" expanded="false" />
-            <element signature="e#1122#1560#0" expanded="false" />
-            <element signature="e#1596#2145#0" expanded="false" />
-            <element signature="e#2174#2635#0" expanded="false" />
-            <element signature="e#2663#3076#0" expanded="false" />
-            <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,16 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-          <folding>
-            <element signature="e#20#67#0" expanded="true" />
-            <element signature="e#217#449#0" expanded="false" />
-            <element signature="e#485#1093#0" expanded="false" />
-            <element signature="e#1122#1560#0" expanded="false" />
-            <element signature="e#1596#2145#0" expanded="false" />
-            <element signature="e#2174#2635#0" expanded="false" />
-            <element signature="e#2663#3076#0" expanded="false" />
-            <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -912,33 +829,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17513135">
-          <caret line="4" column="14" selection-start-line="3" selection-start-column="15" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/standardSchemas/xhtml1-transitional.dtd">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4395797">
           <caret line="670" column="13" selection-start-line="670" selection-start-column="2" selection-end-line="670" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index/uid_score_bid">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5714285">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bookRecommend/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3820034">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -970,71 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index/basedUserCF.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="186" column="19" selection-start-line="186" selection-start-column="19" selection-end-line="186" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index/newbook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index/reason.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17355372">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/globalUse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5371901">
-          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index/details.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="65" selection-start-line="82" selection-start-column="65" selection-end-line="82" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24793388">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.043782838">
-          <caret line="85" column="67" selection-start-line="85" selection-start-column="57" selection-end-line="85" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -1045,56 +874,247 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/more.html">
+    <entry file="file://$PROJECT_DIR$/index/uid_score_bid">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.043782838">
-          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.89285713">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/more.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3642733">
+          <caret line="69" column="76" selection-start-line="69" selection-start-column="73" selection-end-line="69" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/see.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-          <folding>
-            <element signature="e#20#88#0" expanded="true" />
-            <marker date="1463213916666" expanded="true" signature="814:846" placeholder="select usern..user..." />
-            <marker date="1463213916666" expanded="true" signature="1591:1609" placeholder="select * fro..book..." />
-          </folding>
+          <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index/basedUserCF.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4214876">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20661157">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/globalUse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.90909094">
+          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index/details.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="4" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index/basedItem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.352941">
+          <caret line="137" column="78" selection-start-line="137" selection-start-column="78" selection-end-line="137" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bookRecommend/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="2" selection-start-line="107" selection-start-column="2" selection-end-line="107" selection-end-column="2" />
+          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bookRecommend/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41322315">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/regeister.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.911765">
+          <caret line="35" column="29" selection-start-line="30" selection-start-column="8" selection-end-line="35" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.2101574">
+          <caret line="186" column="19" selection-start-line="186" selection-start-column="19" selection-end-line="186" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.7352941">
+          <caret line="9" column="21" selection-start-line="8" selection-start-column="16" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/adminlogin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34325746">
+          <caret line="24" column="102" selection-start-line="24" selection-start-column="102" selection-end-line="24" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.029411">
+          <caret line="15" column="11" selection-start-line="10" selection-start-column="6" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index/other.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75206614">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <caret line="109" column="20" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3322314">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
           <folding>
-            <element signature="e#20#67#0" expanded="true" />
-            <element signature="e#217#449#0" expanded="false" />
-            <element signature="e#485#1093#0" expanded="false" />
-            <element signature="e#1122#1560#0" expanded="false" />
-            <element signature="e#1596#2145#0" expanded="false" />
-            <element signature="e#2174#2635#0" expanded="false" />
-            <element signature="e#2663#3076#0" expanded="false" />
-            <marker date="1463160956696" expanded="true" signature="292:340" placeholder="select usern..user..." />
+            <marker date="1464753447729" expanded="true" signature="882:914" placeholder="select usern..user..." />
+            <marker date="1464753447729" expanded="true" signature="2327:2351" placeholder="insert into user..." />
+            <marker date="1464753447729" expanded="true" signature="2327:2360" placeholder="insert into user..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="1" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.5166373">
-          <caret line="126" column="30" selection-start-line="126" selection-start-column="30" selection-end-line="126" selection-end-column="30" />
-          <caret line="126" column="28" selection-start-line="126" selection-start-column="28" selection-end-line="126" selection-end-column="28" />
+        <state vertical-scroll-proportion="-6.617647">
+          <caret line="30" column="47" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="173" column="90" selection-start-line="173" selection-start-column="90" selection-end-line="173" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29752067">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+          <folding>
+            <element signature="e#20#101#0" expanded="true" />
+            <element signature="e#388#963#0" expanded="false" />
+            <element signature="e#1345#1700#0" expanded="false" />
+            <element signature="e#1743#1945#0" expanded="false" />
+            <element signature="e#1994#2799#0" expanded="false" />
+            <element signature="e#2843#3549#0" expanded="false" />
+            <element signature="e#3602#4792#0" expanded="false" />
+            <element signature="e#4836#5500#0" expanded="false" />
+            <element signature="e#5562#7671#0" expanded="false" />
+            <element signature="e#7715#7905#0" expanded="false" />
+            <marker date="1464851501190" expanded="true" signature="548:588" placeholder="select * fro..adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="548:597" placeholder="select * fro..adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="548:601" placeholder="select * fro..adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="548:611" placeholder="select * fro..adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="548:619" placeholder="select * fro..adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="1074:1087" placeholder="select * fro..." />
+            <marker date="1464851501190" expanded="true" signature="1431:1454" placeholder="select * fro..adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="1776:1814" placeholder="delete from ..." />
+            <marker date="1464851501190" expanded="true" signature="1776:1824" placeholder="delete from ..." />
+            <marker date="1464851501190" expanded="true" signature="2196:2205" placeholder="select * fro..." />
+            <marker date="1464851501190" expanded="true" signature="2196:2225" placeholder="select * fro..adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="2196:2238" placeholder="select * fro..adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="2196:2247" placeholder="select * fro..adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="2442:2471" placeholder="insert into adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="2442:2472" placeholder="insert into adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="2442:2483" placeholder="insert into adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="2442:2492" placeholder="insert into adminuser..." />
+            <marker date="1464851501190" expanded="true" signature="2914:2952" placeholder="select * fro..book..." />
+            <marker date="1464851501190" expanded="true" signature="4905:4946" placeholder="select * fro..book..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6376" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6386" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6419" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6420" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6432" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6433" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6458" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6467" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6477" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6514" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6523" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6557" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6568" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6603" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6614" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6640" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6648" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6660" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6661" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6693" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6703" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6740" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6748" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6348:6749" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="6773:6934" placeholder="update book ..." />
+            <marker date="1464851501190" expanded="true" signature="7114:7147" placeholder="select * fro..book..." />
+            <marker date="1464851501190" expanded="true" signature="7114:7155" placeholder="select * fro..book..." />
+            <marker date="1464851501190" expanded="true" signature="7748:7779" placeholder="delete from ..." />
+            <marker date="1464851501190" expanded="true" signature="7748:7787" placeholder="delete from ..." />
+          </folding>
         </state>
       </provider>
     </entry>

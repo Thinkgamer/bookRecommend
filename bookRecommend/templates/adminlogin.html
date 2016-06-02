@@ -5,7 +5,7 @@
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>欢迎登录</title>
+<title>后台登录</title>
 <link rel="stylesheet" type="text/css" href="/static/css/login.css" />
 </head>
 <body>
@@ -17,24 +17,24 @@ alert("{{ error }}");
 <div class="container">
 	<section id="content">
 		<form action="" method="POST">
-			<h1>图书推荐系统登录</h1>
+			<h1 style="color: #ed1c24">后台管理登录</h1>
 			<div>
 				<input type="text" placeholder="Username" required="" id="username" name="username" />
 			</div>
 			<div>
-				<input type="password" placeholder="Password" required="" id="password" />
+				<input type="password" placeholder="Password" required="" id="password" name="password" />
 			</div>
 			<div style="margin-left: 110px;">
 				<input type="submit" value="Log in" />
 			</div>
 		</form><!-- form -->
-		<div class="button">
-			<a href="/default/login" style="margin-left: 30px;float: left">后台管理</a>
+        <div class="button">
+            <a href="/login/regeister" style="margin-left: 30px;float: left">账户注册</a>
 			<a href="/login/see/root">随便看看</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="/login/regeister">账户注册</a>
+			<a href="/login/login">账户登录</a>
 		</div><!-- button -->
-	</section><!-- content -->
+		</section><!-- content -->
 </div><!-- container -->
 </body>
 </html>

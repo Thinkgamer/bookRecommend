@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/css/admin.css">
+    <title>后台管理</title>
+</head>
+{% if error %}
+<script>
+alert("{{ error }}");
+</script>
+{% endif %}
+<body>
+<div class="head cen">
+    <span class="left_span">图书推荐系统后台管理</span>
+    <span class="right_span">管理员：{{ name }} &nbsp;&nbsp;|&nbsp;&nbsp; <a href="/default/login">注销</a></span>
+</div>
+<!--中间-->
+<div class="center cen" >
+    <div class="left_center"><!--center left-->
+        <div class="cen" style="width:120px;">
+            <br/><br/>
+            <h3 class="cen center_h3"><a href="/default/amanage/{{ name }}">管理员管理</a></h3>
+                <ul class="center_ul">
+                    <li><a href="/default/aadd/{{ name }}">增加</a></li>
+                    <li><a href="/default/amanage/{{ name }}">查看</a></li>
+                </ul>
+            <h3  class="cen center_h3"><a href="/default/umanage/{{ name }}">用户管理</a></h3>
+                <ul class="center_ul">
+                    <li><a href="">增加</a></li>
+                    <li><a href="">查看</a></li>
+                </ul>
+            <h3 class="cen center_h3"><a href="/default/bmanage/{{ name }}/1">书籍管理</a></h3>
+                <ul class="center_ul">
+                    <li><a href="/default/addbook/{{ name }}">增加</a></li>
+                    <li><a href="/default/bmanage/{{ name }}/1">查看</a></li>
+                </ul>
+        </div>
+    </div><!--end left-->
+
+    <div class="right_center"><!--center right-->
+        <div class="right_head">{{ title }}</div>
+        <hr style="border: 1px rosybrown solid">
+
+        <div class="right_user cen"><!--管理员管理-->
+        {% if admin_list %}  {# 修改，查看，删除管理员信息 #}
+            <table width="100%" class="a_table" >
+                <tr align="center"  style="color: #EA2000;font-weight: bolder;">
+                    <td width="33%">username</td>
+                    <td width="33%">userpwd</td>
+                    <td width="33%">操作</td>
+                </tr>
+                {% for admin in admin_list %}
+                <tr align="center">
+                    <td>{{ admin.name }}</td>
+                    <td>{{ admin.pwd }} </td>
+                    <td><a href="">修改</a> | <a href="/default/adel/{{ name }}/{{ admin.name }}">删除</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% elif aflag %}{# 增加管理员信息 #}
+            <div class="add_admin cen">
+                <form class="cen" method="post" action="">
+                    Name：<input type="text" id="anama" name="aname" required="" class="form_input">
+                    <br/><br/>
+                    &nbsp;Pwd：&nbsp;&nbsp;<input type="text" id="apwd" name="apwd" required="" class="form_input">
+                    <br/><br/>
+                    <input type="submit" class="form_submit">
+                </form>
+            </div>
+        {% endif %}
+        </div><!--end 管理员管理-->
+
+        <div><!--用户管理-->
+        {% if user_list %}  {# 修改，查看，删除管理员信息 #}
+            <table width="100%" class="a_table" >
+                <tr align="center">
+                    <td width="20%">书名</td>
+                    <td width="20%">作者</td>
+                    <td width="20%">出版社</td>
+                    <td width="20%">出版日期</td>
+                    <td width="20%">操作</td>
+                </tr>
+                {% for user in user_list %}
+                <tr align="center">
+                    <td>{{ admin.name }}</td>
+                    <td>{{ admin.pwd }} </td>
+                    <td><a href="">修改</a> | <a href="/default/adel/{{ name }}/{{ admin.name }}">删除</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% elif uflag %}{# 增加管理员信息 #}
+            <div class="add_admin cen">
+                <form class="cen" method="post" action="">
+                    Name：<input type="text" id="anama" name="aname" required="" class="form_input">
+                    <br/><br/>
+                    &nbsp;Pwd：&nbsp;&nbsp;<input type="text" id="apwd" name="apwd" required="" class="form_input">
+                    <br/><br/>
+                    <input type="submit" class="form_submit">
+                </form>
+            </div>
+        {% endif %}
+        </div><!--end 用户管理-->
+
+        <div><!--书籍管理-->
+        {% if num_list %}
+        <div class="fenye">
+            <span>第</span>
+            {% for i in num_list %}
+            <a href="/default/bmanage/{{ name }}/{{ i }}"><span>{{ i }}</span></a> |
+            {% endfor %}
+            <span>页</span>
+        </div>
+        {% endif %}
+        {% if book_list %}  {# 修改，查看，删除图书信息 #}
+            <table width="100%" class="a_table" >
+                <tr align="center" style="color: #EA2000;font-weight: bolder;">
+                    <td width="20%">书名</td>
+                    <td width="20%">作者</td>
+                    <td width="20%">出版社</td>
+                    <td width="20%">出版日期</td>
+                    <td width="20%">操作</td>
+                </tr>
+                {% for book in book_list %}
+                <tr align="center">
+                    <td>{{ book.bname }}</td>
+                    <td>{{ book.bauthor }} </td>
+                    <td>{{ book.bpub }} </td>
+                    <td>{{ book.bpdata }} </td>
+                    <td>
+                        <a href="/default/changebook/{{ name }}/{{ book.bid }}">修改</a> |
+                        <a href="/default/bookdel/{{ name }}/{{ book.bid }}">删除</a>|
+                        <a href="/default/show/{{ name }}/{{ book.bid }}">More</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% elif bflag %}{# 增加书籍信息 #}
+            <div class="add_book cen">
+                <form class="cen" method="post" action="">
+                    书&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：
+                    <input type="text" required="" id="bnama" name="bnama" placeholder="" class="form_input" ><br/><br/>
+                    作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：
+                    <input type="text" required="" id="bauthor" name="bauthor" placeholder="" class="form_input"><br/><br/>
+                    译&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：
+                    <input type="text" required="" id="btran" name="btran" placeholder="" class="form_input"><br/><br/>
+                    出&nbsp;&nbsp;版&nbsp;&nbsp;社：
+                    <input type="text" required="" id="bpub" name="bpub" placeholder="" class="form_input"><br/><br/>
+                    出版日期：
+                    <input type="text" required="" id="bpdata" name="bpdata" placeholder="eg:20150325" class="form_input"><br/><br/>
+                    简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;要：
+                    <textarea type="text" required="" id="bshow" name="bshow" class="form_input_show">{{ one.bshow }}</textarea><br/><br/>
+                    <input type="submit" class="form_submit">
+                </form>
+            </div>
+        {% elif cflag %}<!--修改书籍信息-->
+            <div class="add_book cen">
+                <form class="cen" method="post" action="">
+                    书&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：
+                    <input type="text" id="bnama" name="bnama" value = "{{ one.bname }}" class="form_input" ><br/><br/>
+                    作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：
+                    <input type="text" id="bauthor" name="bauthor" value="{{ one.bauthor }}" class="form_input" ><br/><br/>
+                    译&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：
+                    <input type="text" id="btran" name="btran" value="{{ one.btran }}" class="form_input" ><br/><br/>
+                    出&nbsp;&nbsp;版&nbsp;&nbsp;社：
+                    <input type="text" id="bpub" name="bpub" value="{{ one.bpub }}" class="form_input" ><br/><br/>
+                    出版日期：
+                    <input type="text" id="bpdata" name="bpdata" value="{{ one.bpdata }}" class="form_input" ><br/><br/>
+                    评&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分：
+                    <input type="text" id="bscore" name="bscore" value="{{ one.bscore }}" class="form_input" ><br/><br/>
+                    评&nbsp;&nbsp;论&nbsp;&nbsp;数：
+                    <input type="text" id="bdisnum" name="bdisnum" value="{{ one.bdisnum }}" class="form_input" ><br/><br/>
+                    简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;要：
+                    <textarea type="text" id="bshow" name="bshow" class="form_input_show" >{{ one.bshow }}</textarea><br/><br/>
+                    <input type="submit" class="form_submit">
+                </form>
+            </div>
+        {% elif mflag %} <!--查看书籍信息-->
+            <div class="add_book cen">
+                <form class="cen" method="post" action="">
+                    书&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：
+                    <input type="text" id="bnama" name="bnama" value = "{{ one.bname }}" class="form_input" readonly><br/><br/>
+                    作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：
+                    <input type="text" id="bauthor" name="bauthor" value="{{ one.bauthor }}" class="form_input" readonly><br/><br/>
+                    译&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：
+                    <input type="text" id="btran" name="btran" value="{{ one.btran }}" class="form_input" readonly><br/><br/>
+                    出&nbsp;&nbsp;版&nbsp;&nbsp;社：
+                    <input type="text" id="bpub" name="bpub" value="{{ one.bpub }}" class="form_input" readonly><br/><br/>
+                    出版日期：
+                    <input type="text" id="bpdata" name="bpdata" value="{{ one.bpdata }}" class="form_input" readonly><br/><br/>
+                    评&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分：
+                    <input type="text" id="bscore" name="bscore" value="{{ one.bscore }}" class="form_input" readonly><br/><br/>
+                    评&nbsp;&nbsp;论&nbsp;&nbsp;数：
+                    <input type="text" id="bdisnum" name="bdisnum" value="{{ one.bdisnum }}" class="form_input" readonly><br/><br/>
+                    简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;要：
+                    <textarea type="text" id="bshow" name="bshow" class="form_input_show" readonly>{{ one.bshow }}</textarea><br/><br/>
+                    <input type="submit" class="form_submit">
+                </form>
+            </div>
+        {% endif %}
+        </div><!--end 书籍管理-->
+    </div><!--end right-->
+
+</div><!--end-->
+
+<div class="foot">
+    <span class="foot_span">版权所用：吕丽 copyfrom 福州大学</span>
+</div>
+</body>
+</html>

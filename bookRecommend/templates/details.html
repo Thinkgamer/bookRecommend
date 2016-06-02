@@ -4,6 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>图书推荐系统</title>
 <link rel="stylesheet" type="text/css" href="/static/css/details.css" />
+{% if error and not flag %}
+<script>
+if(confirm("{{ error }}")){
+            window.location.href="/login/login";
+        }
+</script>
+{% elif error and flag %}
+<script>
+alert("{{ error }}");
+</script>
+{% endif %}
 
 </head>
 <body>
@@ -12,12 +23,17 @@
             <div class="logo"><a href="/index/index/{{ uid }}"><img src="/static/image/logo.gif" alt="" title="" border="0" /></a></div>
             <div id="menu">
                 <ul>
+                {% if username %}
                 <li class="selected"><a href="/index/index/{{ uid }}">首页</a></li>
                 <li><a href="/index/more/{{ uid }}">猜你喜欢</a></li>
                 <li><a href="/index/hot/{{ uid }}">Hot榜</a></li>
                 <li><a href="/index/new/{{ uid }}">新书速递</a></li>
                 <li style="float: right"><a href="/login/login">注销</a></li>
                 <li style="float: right"><a href="/login/center/{{ uid }}">用户：{{ username }}</a></li>
+                {% else %}
+                <li class="selected"><a href="/login/see/root">随便看看</a></li>
+                <li style="float: right"><a href="/login/login">登录</a></li>
+                {% endif %}
                 </ul>
             </div>
         </div>
@@ -51,7 +67,23 @@
                             {% endfor %}
                         </div>
                     </div>
-
+                    <!--添加用户评分-->
+                    <div style="width: 100%; float: left;">
+                        {% if score %}
+                        <form method="post" action="">
+                            <br/><br/>
+                            <p style="color: #ed1c24;font-size: 20px;"> 你对该书的打分是：{{ score }}分，若要更新，重新提交</p>
+                            <input type="text" id="score" name="score" style="width: 30%; height: 15px" required="" placeholder="输入分数在0~5之间">
+                            <input type="submit" value="提交" style="height: 20px;">
+                        </form>
+                        {% else %}
+                        <form method="post" action="">
+                            <p style="color: #ed1c24;font-size: 20px;"> 我要为该书评分</p>
+                            <input type="text" id="score" name="score" style="width: 30%; height: 15px" required="" placeholder="输入分数在0~5之间">
+                            <input type="submit" value="提交" style="height: 20px;">
+                        </form>
+                        {% endif %}
+                    </div><!--end form-->
                     <div class="intrduce_buttom">
                         <h2>简介：</h2>
                         <p>{{ onebook.bshow }}</p>
@@ -66,15 +98,20 @@
                     <div class="new_prod_box">
                         <a href="">《{{ one.bname }}》</a>
                         <div class="new_prod_bg">
-                            <a href="details.html"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title="" class="thumb" border="0" /></a>
+                            {% if username %}
+                            <div class="prod_img"><a href="/index/details/{{ uid }}/{{ one.bid }}"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title="" border="0"/></a></div>
+                            {% else %}
+                            <div class="prod_img"><a href="/index/details/root/{{ one.bid }}"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title="" border="0"/></a></div>
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
                 </div>
                 <div class="clear"></div>
             </div><!--end of left content-->
-        
+
             <div class="right_content">
+                {% if usersim_list %}
                 <div class="right_box">
                     <div class="title">
                         <span class="title_icon"><img src="/static/image/bullet5.gif" alt="" title="" /></span>
@@ -87,7 +124,29 @@
                         {% endfor %}
                     </ul>
                 </div>
-
+                {% else %}
+                    <div class="right_box">
+                    <div class="title">
+                        <span class="title_icon"><img src="/static/image/bullet5.gif" alt="" title="" /></span>
+                        为你推荐<span style="font-size: 15px;color: tomato"></span>
+                    </div>
+                    {% if book_list %}
+                    <ul class="list">
+                        {% for one in book_list %}
+                            <li>
+                                <a href="/index/details/{{ uid }}/{{ one.bid }}">《{{ one.bname }}》</a><br/>
+                                <a>推荐指数：{{ one.bsim | floatformat:2}}</a><br/>
+                                <span style="margin-left: 10%"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title=""></span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <ul class="list">
+                        <li><a href="/login/login">点击登录</a></li>
+                    </ul>
+                    {% endif %}
+                </div>
+                {% endif %}
             </div><!--end of right content-->
 
         <div class="clear"></div>

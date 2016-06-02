@@ -1,0 +1,151 @@
+/*通用*/
+body{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: 14px Arial;
+}
+
+.cen{
+    margin: 0 auto;
+}
+/*头部*/
+.head{
+    width:100%;
+    height:30px;
+    background-color: #627291;
+}
+
+/*中间*/
+.center{
+    width:100%;
+    min-height:530px;
+}
+/*left_center*/
+.left_center{
+    float: left;
+    width: 20%;
+    min-height:530px;
+    border: 1px #b2b2b2 solid;
+    border-width: 0px 1px 0px 0px;
+    font-size: 20px;
+    line-height: 30px;
+}
+.left_span{
+    float: left;
+    margin-left: 30px;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.center_h3 a{
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+}
+.center_h3:hover a{
+    color: tomato;
+}
+.center_ul{
+    list-style: square;
+}
+.center_ul li:hover a{
+    color: #ed1c24;
+    font-weight: bolder;
+    border: 1px #afaeaf solid;
+}
+.center_ul li a{
+    text-decoration: none;
+}
+
+/*right_center*/
+.right_center{
+    float: right;
+    width: 79%;
+    height:100%;
+}
+.right_head{
+    font-size: 25px;
+    line-height: 40px;
+    height: 30px;
+    margin-left: 43%;
+}
+
+.right_span{
+    float: right;
+    margin-right: 40px;
+    font-size: 18px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+.right_span a {
+    color: #FFFFFF;
+}
+
+.right_user{
+    width: 80%;
+}
+.a_table{
+    width: 100%;
+    line-height: 30px;
+    font-size: 18px;
+    border-bottom:#b2b2b2 solid 1px;
+    border-left:#b2b2b2 solid 1px;
+    margin-top: 20px;
+}
+.a_table tr td{
+    border-top:#b2b2b2 solid 1px;
+    border-right:#b2b2b2 solid 1px;
+    text-align:center;
+    line-height:24px;
+}
+
+.add_admin{
+    width: 53%;
+    margin-top: 150px;
+}
+
+.add_book{
+    width: 80%;
+}
+
+.form_input{
+    margin-left: 50px;
+    line-height: 25px;
+    font-size: 18px;
+    width: 73%;
+}
+.form_input_show {
+    margin-left: 50px;
+    line-height: 20px;
+    font-size: 14px;
+    width: 73%;
+    height: 108px;
+}
+.form_submit{
+    margin-left: 200px;
+    line-height: 15px;
+    font-size: 15px;
+}
+
+.fenye{
+    width:100%;
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 10px;
+}
+
+/*底部*/
+.foot{
+    width: 100%;
+    height:30px;
+    line-height: 30px;
+    background-color: #627291;
+}
+.foot_span{
+    color: #FFFFFF;
+    font-size: 15px;
+    line-height: 30px;
+    margin-left: 40%;
+}

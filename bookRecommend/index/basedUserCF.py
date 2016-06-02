@@ -5,21 +5,30 @@ Created on 2016年5月2日
 @author: Gamer Think
 '''
 from math import sqrt
+import MySQLdb
 
-fp = open("index/uid_score_bid","r")
+#连接数据库
+def connect():
+    con = MySQLdb.connect("127.0.0.1","root","root","bookrecommend",charset="utf8")
+    cursor = con.cursor()
+    return con,cursor
+#关闭数据库
+def close(db,cursor):
+    db.commit()
+    db.close()
+    cursor.close()
 
 users = {}
 
-for line in open("index/uid_score_bid"):
-    lines = line.strip().split(",")
-    if lines[0] not in users:
-        users[lines[0]] = {}
-    users[lines[0]][lines[2]]=float(lines[1])
+db,cursor = connect()
+sql = "select * from uid_to_bid"
+cursor.execute(sql)
+for row in cursor.fetchall():
+    if row[0].encode("gbk") not in users:
+        users[row[0].encode("gbk")] = {}
+    users[row[0].encode("gbk")][row[2]]=float(row[1])
 
-
-#----------------新增代码段END----------------------
-
-
+close(db,cursor)
 
 class recommender:
     #data：数据集，这里指users

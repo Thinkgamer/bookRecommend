@@ -6,6 +6,8 @@ from login.globalUse import *
 from index.details import *
 from index.views import getName
 import index.details as get
+import random
+from index.basedItem import recommend
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -16,6 +18,7 @@ def connect():
     return con,cursor
 #关闭数据库
 def close(db,cursor):
+    db.commit()
     db.close()
     cursor.close()
 
@@ -38,10 +41,17 @@ def login(request):
 
             #如果存在则返回主界面
             if name==row[0].encode("gbk"):
-                bookid_list,userid_list=adjustrecommend(row[1])
+                try:
+                    bookid_list,userid_list=adjustrecommend(row[1])
+                    itembook_list =recommend(row[1])
+                except:
+                    bookid_list = []
+                    userid_list = []
+                    itembook_list = []
                 userrecommend.setBookId(bookid_list)
                 userrecommend.setUserId(userid_list)
                 userrecommend.setSeeBook(getseeBook(row[1]))
+                userrecommend.setItemBook(itembook_list)
 
                 return HttpResponseRedirect("/index/index/%s" % row[1])
         #不存在返回login并提sta示错误
@@ -52,29 +62,49 @@ def login(request):
     else:
         return render_to_response("login.html",{ })
 
-def see(request):
-    booklist = []
-    #连接数据库
-    db,cursor = connect()
-    #定义sql，提交并查询
-    sql = "select * from book"
-    cursor.execute(sql)
-    for row in cursor.fetchall():
-        booklist.append({"bname":row[0].decode("gbk"),"bid":row[1],"bdisnum":row[2],"bscore":row[3]})
-    #排序函数
-    booklist = sorted(booklist,reverse=True)
-    newbooklist = []
-    for one in booklist:
-        newbooklist.append(one)
-    #返回语句，带回相应的数据
-    return  render_to_response("see.html",{
-        "booklist":newbooklist,
+#用户注册
+@csrf_exempt
+def regeister(request):
+
+    if request.method == "POST":
+        db,cursor = connect()  #数据库连接
+        name = request.POST.get("username") #获取用户名
+        #产生用户id
+        uidSet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',\
+                  'r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9']
+        uid = ''
+        for i in range(8):
+            uid += uidSet[random.randint(0,35)]
+        # print uid,name
+        sql = "insert into user values(%s,%s,%s)"
+        arr = (name,uid,"root")
+        cursor.execute(sql,arr)
+        close(db,cursor)
+
+        try:
+            bookid_list,userid_list=adjustrecommend(row[1])
+            itembook_list =recommend(row[1])
+        except:
+            bookid_list = []
+            userid_list = []
+            itembook_list = []
+        userrecommend.setBookId(bookid_list)
+        userrecommend.setUserId(userid_list)
+        userrecommend.setSeeBook(getseeBook(row[1]))
+        userrecommend.setItemBook(itembook_list)
+
+        return HttpResponseRedirect("/login/see/%s" % uid)
+    return render_to_response("regeister.html",{
+
     })
 
 def center(request,uid):
     #获得相似用户列表
     uid_list=userrecommend.userid_list
     usersim_list = get.getSimUser(uid_list)
+
+    #更新看过的书
+    userrecommend.setSeeBook(getseeBook(uid))
 
     username = getName(uid)
     return render_to_response("more.html",{
@@ -104,12 +134,13 @@ def otherCen(request,uid,otherid):
         "book_list":getseeBook(otherid),
     })
 
-def see(request):
-
+def see(request,uid):
+    username = getName(uid)
     from index.newbook import getHotBook
     #获得hot book列表
     hotBook_list =getHotBook()
-    return render_to_response("more.html",{
-        "title":"随便看看",
+    return render_to_response("see.html",{
         "book_list":hotBook_list,
+        "uid":uid,
+        "username":username
     })

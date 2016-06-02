@@ -1,8 +1,8 @@
-#-*-coding:utf-8-*-
+#-*- coding:utf-8-*-
 from django.shortcuts import render_to_response
 import details as get
 from newbook import getNewBook,getHotBook,getYouLoveBook
-#-*- coding:utf-8-*-
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def getName(uid):
@@ -60,24 +60,74 @@ def more(request,uid):
         "book_list":loveLook_list,
     })
 
+@csrf_exempt
 def details(request,uid,bid):
-    from login.views import userrecommend
-    #获得相似用户列表
-    uid_list=userrecommend.userid_list
-    usersim_list = get.getSimUser(uid_list)
     #获得一本书的具体信息和购买信息
     onebook,onebookbuy = get.getOneBook(bid,"newbook")
     username = getName(uid)
     #获取评论过该本书的还评论过那些书
     otherbook_list = get.getOtherBook(bid)
+    #判断当前用户是否对该本书打过分
+    import other
+    score = other.getScore(uid,bid)
+
+    #基于Item的推荐
+    from login.views import userrecommend
+    itembook_list = userrecommend.itembook_list
+
+    #如果是提交分数
+    if request.method=="POST":
+        score = request.POST.get("score")
+        try:
+            score = float(score) if float(score)<5.0 else 3.0
+        except:
+            return  render_to_response("details.html",{
+                "username":username,
+                "uid":uid,
+                "onebook":onebook,
+                "onebookbuy":onebookbuy,
+                "otherbook_list":otherbook_list[:4],
+                "error":"你输入的数据不合法，请重新输入",
+                "flag":1,
+                "book_list":sorted(itembook_list,reverse=True),
+             })
+        finally:
+            # print score
+            pass
+        if not username:        #还没有登录
+             # print score
+             return  render_to_response("details.html",{
+                 "username":username,
+                 "uid":uid,
+                 "onebook":onebook,
+                 "onebookbuy":onebookbuy,
+                 "otherbook_list":otherbook_list[:4],
+                 # "bmess_list":bmess_list[:4],
+                 "error":"你还没有登陆，是否登录？",
+                 "flag":0,
+                 "book_list":sorted(itembook_list,reverse=True),
+             })
+        other.writeScore(uid,score,bid)     #将打分写入数据库
+        return render_to_response("details.html",{
+            "username":username,
+            "uid":uid,
+            "onebook":onebook,
+            "onebookbuy":onebookbuy,
+            "otherbook_list":otherbook_list[:5],
+            # "bmess_list":bmess_list[:4],
+            "score":score,
+            "book_list":sorted(itembook_list,reverse=True),
+        })
 
     return  render_to_response("details.html",{
         "username":username,
         "uid":uid,
         "onebook":onebook,
         "onebookbuy":onebookbuy,
-        "usersim_list":usersim_list,
         "otherbook_list":otherbook_list[:4],
+         # "bmess_list":bmess_list[:4],
+        "score":score,
+        "book_list":sorted(itembook_list,reverse=True),
     })
 
 

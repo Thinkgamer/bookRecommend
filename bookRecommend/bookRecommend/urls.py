@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/', include("login.urls")),
     url(r'^index/', include("index.urls")),
+    url(r'^default/', include("default.urls")),
 ]

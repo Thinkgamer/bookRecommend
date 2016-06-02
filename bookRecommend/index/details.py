@@ -10,7 +10,7 @@ def getOneBook(bid,flag):
         cursor.execute(sql_d)
         onebook={}  #存放book的相关信息
         onebookbuy = [] #存放购买的详细信息
-        print "book"
+        # print "book"
         for row in cursor.fetchall():
             onebook["bid"] = row[0]
             onebook["bname"] = row[1]
@@ -27,7 +27,7 @@ def getOneBook(bid,flag):
             onebookbuy.append({"store":row_b[2],"price":row_b[3],"bhref":row_b[1]})
         return onebook,onebookbuy
     else:
-        print "newbook"
+        # print "newbook"
         onebook={}  #存放book的相关信息
         onebookbuy = [] #存放购买的详细信息
         sql_d2 = "select * from newbook where bookid="+bid+""
@@ -47,7 +47,7 @@ def getOneBook(bid,flag):
         cursor.execute(sql_b2)
         for row_b in cursor.fetchall():
             onebookbuy.append({"store":row_b[2],"price":row_b[3],"bhref":row_b[1]})
-        print onebook,onebookbuy
+        # print onebook,onebookbuy
         return onebook,onebookbuy
 
 def getSimUser(uid_list):
@@ -87,9 +87,15 @@ def getseeBook(uid):
         if bid not in havesee:
             havesee.append(bid)
             sql_1 = "select bookid,bookname,bookshow from book where bookid = '"+bid+"'"
-            cursor.execute(sql_1)
-            for row_1 in cursor.fetchall():
-                book_list.append({"bid":row_1[0],"bname":row_1[1],"bshow":row_1[2]})
+            n =cursor.execute(sql_1)
+            if n==1:
+                for row_1 in cursor.fetchall():
+                    book_list.append({"bid":row_1[0],"bname":row_1[1],"bshow":row_1[2]})
+            else:
+                sql_2 = "select bookid,bookname,bookshow from newbook where bookid = '"+bid+"'"
+                cursor.execute(sql_2)
+                for row_2 in cursor.fetchall():
+                    book_list.append({"bid":row_2[0],"bname":row_2[1],"bshow":row_2[2]})
 
     close(db,cursor)
     return book_list
