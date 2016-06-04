@@ -34,6 +34,7 @@
                 <li><a href="/index/new/{{ uid }}">新书速递</a></li>
                 {% if username %}
                 <li style="float: right"><a href="/login/login">注销</a></li>
+                <li style="float: right"><a href="/index/change/{{ uid }}">信息修改</a>|</li>
                 <li style="float: right"><a href="/login/center/{{ uid }}">{{ username }}</a>|</li>
                 {% else %}
                 <li style="float: right"><a href="/login/login">登录</a></li>
@@ -46,13 +47,62 @@
        	    <div class="left_content">
     	        <div class="title">
                     <span class="title_icon"><img src="/static/image/bullet1.gif" alt="" title="" /></span>
-                    {% if othername %}
-                    {{ othername }}|{{ title }}
-                    {% else %}
-                    {{ username }}|{{ title }}
-                    {% endif %}
+                    {{ title }}
                 </div>
                 <br /><br /><br /><br /><br />
+                {% if changeflag %}
+                    <div class="changemess">
+                    {% if changeokflag %}
+                        <form class="cen" method="post">
+                            UserID：<input type="text" id="uid" name="uid" required="" value="{{ one.uid }}" class="form_input" readonly>
+                            <br/><br/>
+                            Name ：<input type="text" id="unama" name="uname" required="" value="{{ one.uname }}" class="form_input" readonly>
+                            <br/><br/>
+                            &nbsp;Pwd：&nbsp;&nbsp;<input type="password" id="upwd" name="upwd" required="" value="{{ one.upwd }}" class="form_input" readonly>
+                            <br/><br/>
+                            日&nbsp; &nbsp;期：<input type="text" id="uborth" name="uborth" required="" value="{{ one.uborth }}" placeholder="eg:1996(只需要年份)" class="form_input" readonly>
+                            <br/><br/>
+                            工&nbsp; &nbsp;作：<input type="text" id="ujob" name="ujob" required="" value="{{ one.ujob }}" class="form_input" readonly>
+                            <br/><br/>
+                            性&nbsp; &nbsp;别：<input type="text" id="usex" name="usex" required="" value="{{ one.usex }}" class="form_input" readonly>
+                            <br/><br/>
+                        </form>
+                    {% else %}
+                         <form class="cen"  method="post">
+                                UserID：<input type="text" id="uid" name="uid" required="" value="{{ one.uid }}" class="form_input" readonly>
+                                <br/><br/>
+                                Name ：<input type="text" id="unama" name="uname" required="" value="{{ one.uname }}" class="form_input">
+                                <br/><br/>
+                                &nbsp;Pwd：&nbsp;&nbsp;<input type="password" id="upwd" name="upwd" required="" value="{{ one.upwd }}" class="form_input">
+                                <br/><br/>
+                                日&nbsp; &nbsp;期：<input type="text" id="uborth" name="uborth" required="" value="{{ one.uborth }}" placeholder="eg:1996(只需要年份)" class="form_input">
+                                <br/><br/>
+                                工&nbsp; &nbsp;作：<input type="text" id="ujob" name="ujob" required="" value="{{ one.ujob }}" class="form_input">
+                                <br/><br/>
+                                性&nbsp; &nbsp;别：<input type="text" id="usex" name="usex" required="" value="{{ one.usex }}" class="form_input">
+                                <br/><br/>
+                                <input type="submit" class="form_submit">
+                            </form>
+                        {% endif %}
+                    </div>
+                    <div class="itemtuijian">
+                        <div class="title">
+                            <span class="title_icon"><img src="/static/image/bullet1.gif" alt="" title="" />猜你喜欢</span>
+                        </div>
+                        <div class="guess_you_love">
+                            <div class="new_products">
+                                {% for one in itembook_list %}
+                                <div class="new_prod_box">
+                                    <a href=""><span style="font-weight: bolder;color: tomato;overflow: hidden">书名</span>：《{{ one.bname }}》</a>
+                                    <div class="new_prod_bg">
+                                        <a href="/index/details/{{ uid }}/{{ one.bid }}"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title="" class="thumb" border="0" /></a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div><div class="clear"></div>
+                        </div>
+                    </div>
+                {% else %}
                 {% for one in book_list %}
                 <div  class="ulli">
 
@@ -92,7 +142,9 @@
                     </div>
                 </div>
                 {% endfor %}
+                {% endif %}
             </div><!--end of left content-->
+
         <div class="right_content">
         {% if username %}
             <div class="right_box">

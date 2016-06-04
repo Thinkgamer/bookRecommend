@@ -29,7 +29,8 @@ alert("{{ error }}");
                 <li><a href="/index/hot/{{ uid }}">Hot榜</a></li>
                 <li><a href="/index/new/{{ uid }}">新书速递</a></li>
                 <li style="float: right"><a href="/login/login">注销</a></li>
-                <li style="float: right"><a href="/login/center/{{ uid }}">用户：{{ username }}</a></li>
+                <li style="float: right"><a href="/index/change/{{ uid }}">信息修改</a>|</li>
+                <li style="float: right"><a href="/login/center/{{ uid }}">用户：{{ username }}</a>|</li>
                 {% else %}
                 <li class="selected"><a href="/login/see/root">随便看看</a></li>
                 <li style="float: right"><a href="/login/login">登录</a></li>
@@ -142,7 +143,8 @@ alert("{{ error }}");
                     </ul>
                     {% else %}
                     <ul class="list">
-                        <li><a href="/login/login">点击登录</a></li>
+                        <li><a href="">你还没有进行打分</a></li>
+                        <li><a href="">暂时不进行相关推荐</a></li>
                     </ul>
                     {% endif %}
                 </div>

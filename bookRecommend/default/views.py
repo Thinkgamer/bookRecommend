@@ -29,23 +29,100 @@ def login(request):
 
     })
 
-#用户管理
-def umanage(request,admin):
+#用户管理上一页
+def umanago(request,admin,num=1):
     title = "用户管理"
     user_list = []
+    num = int(num)
+    if num==1:
+        num = 1
+    else:
+        num = int(num) - 1
     db,cursor = connect()
-    sql = "select * from"
+    sql = "select * from user ORDER BY -userborth"
     cursor.execute(sql)
     for row in cursor.fetchall():
-        pass
-    if request.method == "POST":
-        pass
-
+        user_list.append({"uid":row[0],"uname":row[1],"upwd":row[2],"uborth":row[3],"ujob":row[4],"usex":row[5]})
+    close(db,cursor)
     return render_to_response("admin.html",{
         "title":title,
         "name":admin,
+        "user_list":user_list[(int(num)-1) * 14:int(num)*14],
+        "num":num,
+        "nflag":1
     })
 
+#用户管理
+def umanage(request,admin,num=1):
+    title = "用户管理"
+    user_list = []
+    db,cursor = connect()
+    sql = "select * from user ORDER BY -userborth"
+    cursor.execute(sql)
+    i = 1
+    for row in cursor.fetchall():
+        user_list.append({"uid":row[0],"uname":row[1],"upwd":row[2],"uborth":row[3],"ujob":row[4],"usex":row[5]})
+        i += 1
+    num = int(num)
+    if num == i/14:
+        num = i
+    else:
+        num = num + 1
+    close(db,cursor)
+    return render_to_response("admin.html",{
+        "title":title,
+        "name":admin,
+        "user_list":user_list[(int(num)-2) * 14:(int(num)-1)*14],
+        "num":num,
+        "nflag":1
+    })
+
+#删除用户
+def deluser(request,admin,uid):
+    db,cursor = connect()
+    sql = "delete from user where userid='"+uid+"'"
+    if cursor.execute(sql):
+        close(db,cursor)
+        return HttpResponseRedirect("/default/umanage/%s/1" % admin)
+
+#添加用户
+@csrf_exempt
+def adduser(request,admin):
+    if request.method == "POST":
+        name = u'%s' %request.POST.get("uname")
+        pwd = u'%s' %request.POST.get("upwd")
+        borth = u'%s' %request.POST.get("uborth")
+        job = u'%s' %request.POST.get("ujob")
+        sex = u'%s' %request.POST.get("usex")
+        #产生uid，以当前时间戳
+        import time
+        uid = time.strftime("%Y%m%d%H%M%S", time.localtime(time.time()))
+        uone = {}
+        uone["uid"]=uid;uone["uname"]=name;uone["upwd"]=pwd;uone["uborth"]=borth;uone["ujob"]=job;uone["usex"]=sex
+
+        db,cursor = connect()
+        sql = "insert into user values('"+uid+"','"+name+"','"+pwd+"','"+borth+"','"+job+"','"+sex+"')"
+        cursor.execute(sql)
+        close(db,cursor)
+
+        return render_to_response("admin.html",{
+            "title":"用户信息添加成功",
+            "name":admin,
+            "book_list":[],
+            "num_list":[],
+            "uflag":0,
+            "usflag":1,
+            "uone":uone,
+        })
+
+
+    return render_to_response("admin.html",{
+        "title":"添加用户",
+        "name":admin,
+        "book_list":[],
+        "num_list":[],
+        "uflag":1,
+    })
 
 #管理员管理
 def amanage(request,admin):
@@ -128,8 +205,18 @@ def addbook(request,admin):
 
     if request.method == "POST":
         db,cursor = connect()
-        import time
-        bid = str(time.strftime("%Y%m%d%H%M%S",time.localtime(time.time()))) #由当前时间命名为bid
+        bid = request.POST.get("bid")
+        sql_id = "select * from book where bookid='"+bid+"'"
+        if cursor.execute(sql_id):
+            return render_to_response("admin.html",{
+                "error":"你输入的书籍id已经存在，请重新输入",
+                "title":title,
+                "name":admin,
+                "book_list":[],
+                "num_list":[],
+                "bflag":1,
+            })
+        bid = bid.encode("utf-8")
         bname = request.POST.get("bnama").encode('utf8')
         bauthor = request.POST.get("bauthor").encode('utf8')
         btran = request.POST.get("btran").encode('utf8')

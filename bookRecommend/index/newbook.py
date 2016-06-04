@@ -39,4 +39,11 @@ def getYouLoveBook(bookid_list):
                     bookLove_list.append({"bid":row[0],"bname":row[1],"bshow":row[-1],"bdisnum":1,"btime":1,"uname":reason.get("name"),"sim":reason.get("simv"),"score":reason.get("score")})
 
     close(db,cursor)
-    return bookLove_list
+    new_love= []
+    bid_list = []
+    for i in bookLove_list:
+        if i["bid"] not in bid_list:
+            bid_list.append(i["bid"])
+            new_love.append(i)
+
+    return new_love

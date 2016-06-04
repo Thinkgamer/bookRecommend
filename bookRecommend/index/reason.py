@@ -6,6 +6,7 @@ from login.views import userrecommend
 def getReason():
     bid_list= userrecommend.bookid_list     #为你推荐的书的id列表
     near_list = userrecommend.userid_list[:3] #根据这三个人来推荐书的，推荐算法中是一致的
+    # print near_list
     reason = []               #用来保存需要显示推荐理由的一些信息
     #对推荐的所有书进行遍历，得到推荐人与当前用户的相似度，他给这本书的打分，以及该用户的姓名
     for bid in bid_list:

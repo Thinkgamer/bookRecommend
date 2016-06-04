@@ -45,9 +45,9 @@ def login(request):
                     bookid_list,userid_list=adjustrecommend(row[1])
                     itembook_list =recommend(row[1])
                 except:
-                    bookid_list = []
-                    userid_list = []
-                    itembook_list = []
+                    from coldstart import coldstart,getItemBook
+                    bookid_list,userid_list=coldstart(row[1])
+                    itembook_list =getItemBook(bookid_list)
                 userrecommend.setBookId(bookid_list)
                 userrecommend.setUserId(userid_list)
                 userrecommend.setSeeBook(getseeBook(row[1]))
@@ -69,25 +69,37 @@ def regeister(request):
     if request.method == "POST":
         db,cursor = connect()  #数据库连接
         name = request.POST.get("username") #获取用户名
-        #产生用户id
-        uidSet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',\
-                  'r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9']
-        uid = ''
-        for i in range(8):
-            uid += uidSet[random.randint(0,35)]
-        # print uid,name
-        sql = "insert into user values(%s,%s,%s)"
-        arr = (name,uid,"root")
+        year = request.POST.get("year") #获取出生年月
+        job = request.POST.get("job")     #获取job
+        sex = request.POST.get("sex")
+        # print name,year,job,sex
+        # #产生用户id
+        # uidSet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',\
+        #           'r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9']
+        # uid = ''
+        # for i in range(8):
+        #     uid += uidSet[random.randint(0,35)]
+        # # print uid,name
+        import time
+        uid = time.strftime("%Y%m%d%H%M%S", time.localtime(time.time()))
+        sql = "insert into user values(%s,%s,%s,%s,%s,%s)"
+        arr = (uid,name,"root",year,job,sex)
         cursor.execute(sql,arr)
         close(db,cursor)
 
-        try:
-            bookid_list,userid_list=adjustrecommend(row[1])
-            itembook_list =recommend(row[1])
-        except:
-            bookid_list = []
-            userid_list = []
-            itembook_list = []
+        # try:
+        from coldstart import coldstart,getItemBook
+        bookid_list,userid_list=coldstart(uid)
+        itembook_list =getItemBook(bookid_list)
+        # except:
+        #     bookid_list = []
+        #     userid_list = []
+        #     itembook_list = []
+        # for bid in bookid_list:
+        #     print bid,"-----------"
+        #
+        # for id in userid_list:
+        #     print id,"-----------"
         userrecommend.setBookId(bookid_list)
         userrecommend.setUserId(userid_list)
         userrecommend.setSeeBook(getseeBook(row[1]))

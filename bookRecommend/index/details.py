@@ -51,6 +51,8 @@ def getOneBook(bid,flag):
         return onebook,onebookbuy
 
 def getSimUser(uid_list):
+    # for id in uid_list:
+        # print id,"-------",type(id)
     from login.views import connect, close
     uname_list=[]
     db,cursor = connect()

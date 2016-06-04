@@ -9,4 +9,5 @@ urlpatterns = [
     url(r"^new/(.+)/$",'index.views.new'),
     url(r"^hot/(.+)/$",'index.views.hot'),
     url(r"^details/(.+)/(.+)/$",'index.views.details'),
+    url(r"change/(.+)/$","index.views.change")
 ]

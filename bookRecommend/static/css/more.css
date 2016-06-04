@@ -7,6 +7,9 @@ body
     margin:0px auto auto auto;
     color:#000000;
 }
+.cen{
+    margin: 0 auto;
+}
 a{
     color:#f8981d;
 }
@@ -190,6 +193,30 @@ a.more:hover{
     padding:10px 0 0 0;
 }
 
+.changemess{
+    height:300px;
+    margin-left:100px;
+}
+.form_input{
+    margin-left: 50px;
+    line-height: 25px;
+    font-size: 18px;
+    width: 40%;
+}
+.form_submit{
+    margin-left: 200px;
+    line-height: 15px;
+    font-size: 15px;
+}
+.itemtuijian{
+    height:300px;
+    margin-top: 50px;
+}
+.guess_you_love{
+
+}
+
+
 /*--------feat_prod_box-----------*/
 .ulli{
     width: 395px;
@@ -244,7 +271,7 @@ a.more:hover{
 .new_prod_box a{
     padding:5px 0 5px 0;
     color:#000;
-    font-size: 15px;
+    font-size: 10px;
     text-decoration:none;
     display:block;
 }

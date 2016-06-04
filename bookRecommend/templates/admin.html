@@ -25,10 +25,10 @@ alert("{{ error }}");
                     <li><a href="/default/aadd/{{ name }}">增加</a></li>
                     <li><a href="/default/amanage/{{ name }}">查看</a></li>
                 </ul>
-            <h3  class="cen center_h3"><a href="/default/umanage/{{ name }}">用户管理</a></h3>
+            <h3  class="cen center_h3"><a href="/default/umanage/{{ name }}/1">用户管理</a></h3>
                 <ul class="center_ul">
-                    <li><a href="">增加</a></li>
-                    <li><a href="">查看</a></li>
+                    <li><a href="/default/adduser/{{ name }}">增加</a></li>
+                    <li><a href="/default/umanage/{{ name }}/1">查看</a></li>
                 </ul>
             <h3 class="cen center_h3"><a href="/default/bmanage/{{ name }}/1">书籍管理</a></h3>
                 <ul class="center_ul">
@@ -72,31 +72,65 @@ alert("{{ error }}");
         </div><!--end 管理员管理-->
 
         <div><!--用户管理-->
-        {% if user_list %}  {# 修改，查看，删除管理员信息 #}
+        {% if user_list %}  {# 修改，查看，用户信息 #}
             <table width="100%" class="a_table" >
                 <tr align="center">
-                    <td width="20%">书名</td>
-                    <td width="20%">作者</td>
-                    <td width="20%">出版社</td>
-                    <td width="20%">出版日期</td>
-                    <td width="20%">操作</td>
+                    <td width="16%">用户ID</td>
+                    <td width="16%">用户名</td>
+                    <td width="16%">日期</td>
+                    <td width="16%">工作</td>
+                    <td width="16%">性别</td>
+                    <td width="16%">操作</td>
                 </tr>
                 {% for user in user_list %}
                 <tr align="center">
-                    <td>{{ admin.name }}</td>
-                    <td>{{ admin.pwd }} </td>
-                    <td><a href="">修改</a> | <a href="/default/adel/{{ name }}/{{ admin.name }}">删除</a></td>
+                    <td>{{ user.uid }}</td>
+                    <td>{{ user.uname }} </td>
+                    <td>{{ user.uborth }} </td>
+                    <td>{{ user.ujob }} </td>
+                    <td>{{ user.usex }} </td>
+                    <td><a href="/default/deluser/{{ name }}/{{user.uid}}">删除</a></td>
                 </tr>
                 {% endfor %}
             </table>
-        {% elif uflag %}{# 增加管理员信息 #}
+            {% if nflag %}
+            <div class="fenye">
+                <a href="/default/umanago/{{ name }}/{{ num }}">上一页</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/default/umanage/{{ name }}/{{ num }}">下一页</a>
+            </div>
+            {% endif %}
+        {% elif uflag %}{# 增加用户信息 #}
             <div class="add_admin cen">
                 <form class="cen" method="post" action="">
-                    Name：<input type="text" id="anama" name="aname" required="" class="form_input">
+                    Name：<input type="text" id="unama" name="uname" required="" class="form_input">
                     <br/><br/>
-                    &nbsp;Pwd：&nbsp;&nbsp;<input type="text" id="apwd" name="apwd" required="" class="form_input">
+                    &nbsp;Pwd：&nbsp;&nbsp;<input type="text" id="upwd" name="upwd" required="" class="form_input">
+                    <br/><br/>
+                    日&nbsp; &nbsp;期：<input type="text" id="uborth" name="uborth" required="" placeholder="eg:1996(只需要年份)" class="form_input">
+                    <br/><br/>
+                    工&nbsp; &nbsp;作：<input type="text" id="ujob" name="ujob" required="" class="form_input">
+                    <br/><br/>
+                    性&nbsp; &nbsp;别：<input type="text" id="usex" name="usex" required="" class="form_input">
                     <br/><br/>
                     <input type="submit" class="form_submit">
+                </form>
+            </div>
+        {% elif usflag %}{# 显示用户信息 #}
+            <div class="add_admin cen">
+                <form class="cen" method="post" action="">
+                    用户ID：<input type="text" id="uid" name="uid" value="{{ uone.uid }}" class="form_input" readonly>
+                    <br/><br/>
+                    Name：<input type="text" id="unama" name="aname" value="{{ uone.uname }}" class="form_input" readonly>
+                    <br/><br/>
+                    &nbsp;Pwd：&nbsp;&nbsp;<input type="text" id="upwd" name="upwd" value="{{ uone.upwd }}" class="form_input" readonly>
+                    <br/><br/>
+                    日&nbsp; &nbsp;期：<input type="text" id="uborth" name="uborth" value="{{ uone.uborth }}" class="form_input" readonly>
+                    <br/><br/>
+                    工&nbsp; &nbsp;作：<input type="text" id="ujob" name="ujob" value="{{ uone.ujob }}" class="form_input" readonly>
+                    <br/><br/>
+                    性&nbsp; &nbsp;别：<input type="text" id="usex" name="usex" value="{{ uone.usex }}" class="form_input" readonly>
+                    <br/><br/>
                 </form>
             </div>
         {% endif %}
@@ -104,7 +138,7 @@ alert("{{ error }}");
 
         <div><!--书籍管理-->
         {% if num_list %}
-        <div class="fenye">
+        <div class="bookfenye">
             <span>第</span>
             {% for i in num_list %}
             <a href="/default/bmanage/{{ name }}/{{ i }}"><span>{{ i }}</span></a> |
@@ -138,6 +172,8 @@ alert("{{ error }}");
         {% elif bflag %}{# 增加书籍信息 #}
             <div class="add_book cen">
                 <form class="cen" method="post" action="">
+                    书&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID：
+                    <input type="text" required="" id="bid" name="bid" placeholder="" class="form_input" ><br/><br/>
                     书&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：
                     <input type="text" required="" id="bnama" name="bnama" placeholder="" class="form_input" ><br/><br/>
                     作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者：
@@ -194,7 +230,7 @@ alert("{{ error }}");
                     <input type="text" id="bdisnum" name="bdisnum" value="{{ one.bdisnum }}" class="form_input" readonly><br/><br/>
                     简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;要：
                     <textarea type="text" id="bshow" name="bshow" class="form_input_show" readonly>{{ one.bshow }}</textarea><br/><br/>
-                    <input type="submit" class="form_submit">
+
                 </form>
             </div>
         {% endif %}

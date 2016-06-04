@@ -51,7 +51,12 @@ def more(request,uid):
 
     #获得为你推荐的书籍
     loveLook_list = getYouLoveBook(userrecommend.bookid_list)
-
+    new_love= []
+    bid_list = []
+    for i in loveLook_list:
+        if i["bid"] not in bid_list:
+            bid_list.append(i["bid"])
+            new_love.append(i)
     return  render_to_response("more.html",{
         "username":username,
         "uid":uid,
@@ -73,7 +78,14 @@ def details(request,uid,bid):
 
     #基于Item的推荐
     from login.views import userrecommend
+    itembook_list = []
     itembook_list = userrecommend.itembook_list
+    new_itembooklist = []
+    newbid_list = []
+    for itembook in itembook_list:
+        if itembook["bid"] != bid:
+            newbid_list.append(itembook["bid"])
+            new_itembooklist.append(itembook)
 
     #如果是提交分数
     if request.method=="POST":
@@ -89,7 +101,7 @@ def details(request,uid,bid):
                 "otherbook_list":otherbook_list[:4],
                 "error":"你输入的数据不合法，请重新输入",
                 "flag":1,
-                "book_list":sorted(itembook_list,reverse=True),
+                "book_list":sorted(new_itembooklist,reverse=True)[:5],
              })
         finally:
             # print score
@@ -105,7 +117,7 @@ def details(request,uid,bid):
                  # "bmess_list":bmess_list[:4],
                  "error":"你还没有登陆，是否登录？",
                  "flag":0,
-                 "book_list":sorted(itembook_list,reverse=True),
+                 "book_list":sorted(new_itembooklist,reverse=True)[:5],
              })
         other.writeScore(uid,score,bid)     #将打分写入数据库
         return render_to_response("details.html",{
@@ -116,7 +128,7 @@ def details(request,uid,bid):
             "otherbook_list":otherbook_list[:5],
             # "bmess_list":bmess_list[:4],
             "score":score,
-            "book_list":sorted(itembook_list,reverse=True),
+            "book_list":sorted(new_itembooklist,reverse=True)[:5],
         })
 
     return  render_to_response("details.html",{
@@ -127,7 +139,7 @@ def details(request,uid,bid):
         "otherbook_list":otherbook_list[:4],
          # "bmess_list":bmess_list[:4],
         "score":score,
-        "book_list":sorted(itembook_list,reverse=True),
+        "book_list":sorted(new_itembooklist,reverse=True)[:5],
     })
 
 
@@ -163,4 +175,71 @@ def hot(request,uid):
         "usersim_list":usersim_list,
         "title":"Hot 榜",
         "book_list":hotBook_list[:20],
+    })
+
+#用户信息修改
+@csrf_exempt
+def change(request,uid):
+    from login.views import userrecommend
+    username = getName(uid)
+    #获得相似用户列表
+    uid_list=userrecommend.userid_list
+    usersim_list = get.getSimUser(uid_list)
+    #获得为你推荐的书籍
+    loveLook_list = getYouLoveBook(userrecommend.bookid_list)
+    #获取目前用户的信息,用于在前端显示
+    one={}
+    from login.views import connect,close
+    db,cursor = connect()
+    sql = "select * from user where userid='"+uid+"'"
+    cursor.execute(sql)
+    for row in cursor.fetchall():
+        one["uid"] = row[0]
+        one["uname"] = row[1]
+        one["upwd"] = row[2]
+        one["uborth"] = row[3]
+        one["ujob"] = row[4]
+        one["usex"] = row[5]
+    close(db,cursor)
+    if request.method=="POST":
+        name = request.POST.get("uname").encode("utf-8")
+        pwd = request.POST.get("upwd").encode("utf-8")
+        borth = request.POST.get("uborth").encode("utf-8")
+        job = request.POST.get("ujob").encode("utf-8")
+        sex = request.POST.get("usex").encode("utf-8")
+        uid = uid.encode('gbk')
+        db,cursor = connect()
+        sql_1 = "update user set username = '"+name+"',\
+                                         userpwd='"+pwd+"', \
+                                         userborth = '"+borth+"',\
+                                         userjob = '"+job+"',\
+                                         usersex = '"+sex+"' \
+                    where userid = '"+uid+"' "
+        cursor.execute(sql_1)
+        close(db,cursor)
+        # print name,pwd,borth,job,sex
+        one["uname"] = name
+        one["upwd"] = pwd
+        one["uborth"] = borth
+        one["ujob"] = job
+        one["usex"] = sex
+        return render_to_response("more.html",{
+            "changeokflag":1,
+            "changeflag":1,
+            "uid":uid,
+            "title":"个人信息修改成功查看",
+            "username":username,
+            "usersim_list":usersim_list,
+            "one":one,
+            "itembook_list":loveLook_list[:10],
+        })
+
+    return render_to_response("more.html",{
+        "changeflag":1,
+        "uid":uid,
+        "title":"个人信息修改",
+        "username":username,
+        "usersim_list":usersim_list,
+        "one":one,
+        "itembook_list":loveLook_list[:10],
     })
