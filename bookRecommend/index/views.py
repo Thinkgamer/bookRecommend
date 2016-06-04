@@ -207,14 +207,14 @@ def change(request,uid):
         borth = request.POST.get("uborth").encode("utf-8")
         job = request.POST.get("ujob").encode("utf-8")
         sex = request.POST.get("usex").encode("utf-8")
-        uid = uid.encode('gbk')
+        uid1 = uid.encode('gbk')
         db,cursor = connect()
         sql_1 = "update user set username = '"+name+"',\
                                          userpwd='"+pwd+"', \
                                          userborth = '"+borth+"',\
                                          userjob = '"+job+"',\
                                          usersex = '"+sex+"' \
-                    where userid = '"+uid+"' "
+                    where userid = '"+uid1+"' "
         cursor.execute(sql_1)
         close(db,cursor)
         # print name,pwd,borth,job,sex
@@ -223,15 +223,25 @@ def change(request,uid):
         one["uborth"] = borth
         one["ujob"] = job
         one["usex"] = sex
+        #每次修改信息触发一次推荐
+        from login.coldstart import coldstart,getItemBook
+        bookid_list1,userid_list1=coldstart(uid1)
+        itembook_list =getItemBook(bookid_list1)
+        userrecommend.setBookId(bookid_list1)
+        userrecommend.setUserId(userid_list1)
+        userrecommend.setItemBook(itembook_list)
+        usersim_list1 = get.getSimUser(userid_list1)
+        #获取你喜欢的书籍推荐
+        loveLook_list1 = getYouLoveBook(userrecommend.bookid_list)
         return render_to_response("more.html",{
             "changeokflag":1,
             "changeflag":1,
             "uid":uid,
             "title":"个人信息修改成功查看",
             "username":username,
-            "usersim_list":usersim_list,
+            "usersim_list":usersim_list1,
             "one":one,
-            "itembook_list":loveLook_list[:10],
+            "itembook_list":loveLook_list1[:10],
         })
 
     return render_to_response("more.html",{

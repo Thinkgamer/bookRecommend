@@ -63,6 +63,7 @@ def umanage(request,admin,num=1):
     for row in cursor.fetchall():
         user_list.append({"uid":row[0],"uname":row[1],"upwd":row[2],"uborth":row[3],"ujob":row[4],"usex":row[5]})
         i += 1
+        # print row[4],"=========="
     num = int(num)
     if num == i/14:
         num = i
@@ -339,3 +340,178 @@ def bookdel(request,admin,bid):
     cursor.execute(sql)
     close(db,cursor)
     return HttpResponseRedirect("/default/bmanage/%s/%s" % (admin,"1"))
+
+#书籍搜索
+@csrf_exempt
+def booksou(request,admin,page,num):
+    if request.method=="POST":
+        key = request.POST.get("key")
+        choose = request.POST.get("bookcase")
+        from login.views import connect,close
+        db,cursor = connect()
+        book_list = []
+        pam = "%" + key + "%"
+        if choose=="bookid":
+            sql = "select * from book where bookid like %s"
+        elif choose=="bookname":
+            sql = "select * from book where bookname like %s"
+        elif choose=="bookauthor":
+            sql = "select * from book where bookauthor like %s"
+        if cursor.execute(sql,pam):
+            for row in cursor.fetchall():
+                book_list.append({"bid":row[0],"bname":row[1],"bauthor":row[2],"bpub":row[4],"bpdata":row[5]})
+        close(db,cursor)
+        if book_list:  #不为空为1
+            nullflag = 0
+        else: #为空
+            nullflag = 1
+        if page == "1":
+            num =(int(num) -1) if (int(num) -1) else 1
+        else:
+            num = int(num)+1
+        newbook_list = book_list[(num-1) *12:(num)*12]
+        if not book_list:
+            nullflag = 1
+        return render_to_response("result.html",{
+            "name":admin,
+            "title":"搜索结果如下",
+            "yes":1,
+            "num":num,
+            "nullflag":nullflag,
+            "book_list":newbook_list,
+            "key":key,
+            "choose":choose,
+        })
+
+    return render_to_response("result.html",{
+        "name":admin,
+        "title":"书籍检索",
+        "no":1,
+        "caseflag":0,
+        })
+#book搜索结果处理翻页
+def bookshow(request,admin,page,num,key,choose):
+    from login.views import connect,close
+    db,cursor = connect()
+    book_list = []
+    pam = "%" + key + "%"
+    if choose=="bookid":
+        sql = "select * from book where bookid like %s"
+    elif choose=="bookname":
+        sql = "select * from book where bookname like %s"
+    elif choose=="bookauthor":
+        sql = "select * from book where bookauthor like %s"
+    if cursor.execute(sql,pam):
+        for row in cursor.fetchall():
+            book_list.append({"bid":row[0],"bname":row[1],"bauthor":row[2],"bpub":row[4],"bpdata":row[5]})
+    close(db,cursor)
+    if page == "1":
+        num =(int(num) -1) if (int(num) -1) else 1
+    else:
+        num = int(num)+1
+    newbook_list = book_list[(num-1) *12:(num)*12]
+    if newbook_list:
+        booknullflag = 0
+    else: #为空
+        booknullflag = 1
+    return render_to_response("result.html",{
+        "name":admin,
+        "title":"搜索结果如下",
+        "yes":1,
+        "num":num,
+        "key":key,
+        "choose":choose,
+        "booknullflag":booknullflag,
+        "book_list":newbook_list,
+    })
+
+#用户搜索
+@csrf_exempt
+def usersou(request,admin,page=1,num=1):
+    if request.method=="POST":
+        key = request.POST.get("key")
+        choose = request.POST.get("usercase")
+        from login.views import connect,close
+        db,cursor = connect()
+        user_list = []
+        pam = "%" + key + "%"
+        if choose=="userid":
+            sql = "select * from user where userid like %s"
+        elif choose=="username":
+            sql = "select * from user where username like %s"
+        elif choose=="userborth":
+            sql = "select * from user where userborth like %s"
+        elif choose=="userjob":
+            sql = "select * from user where userjob like %s"
+        if cursor.execute(sql,pam):
+            for row in cursor.fetchall():
+                user_list.append({"uid":row[0],"uname":row[1],"uborth":row[3],"ujob":row[4],"usex":row[5]})
+        close(db,cursor)
+        if user_list:  #不为空为1
+            nullflag = 0
+        else: #为空
+            nullflag = 1
+        if page == "1":
+            num =(int(num) -1) if (int(num) -1) else 1
+        else:
+            num = int(num)+1
+        newuser_list = user_list[(num-1) *14:(num)*14]
+        if not newuser_list:
+            nullflag = 1
+        return render_to_response("result.html",{
+            "name":admin,
+            "title":"搜索结果如下",
+            "yes":1,
+            "num":num,
+            "key":key,
+            "choose":choose,
+            "nullflag":nullflag,
+            "user_list":newuser_list,
+        })
+
+    return render_to_response("result.html",{
+        "name":admin,
+        "title":"用户检索",
+        "no":1,
+        "num":num,
+        "caseflag":1,
+        })
+#用户搜索结果翻页实现
+def usershow(request,admin,page,num,key,choose):
+    from login.views import connect,close
+    db,cursor = connect()
+    user_list = []
+    pam = "%" + key + "%"
+    if choose=="userid":
+        sql = "select * from user where userid like %s"
+    elif choose=="username":
+        sql = "select * from user where username like %s"
+    elif choose=="userborth":
+        sql = "select * from user where userborth like %s"
+    elif choose=="userjob":
+        sql = "select * from user where userjob like %s"
+    if cursor.execute(sql,pam):
+        for row in cursor.fetchall():
+            user_list.append({"uid":row[0],"uname":row[1],"uborth":row[3],"ujob":row[4],"usex":row[5]})
+    close(db,cursor)
+    if user_list:  #不为空为1
+        nullflag = 0
+    else: #为空
+        nullflag = 1
+    if page == "1":
+        num =(int(num) -1) if (int(num) -1) else 1
+    else:
+        num = int(num)+1
+    newuser_list = user_list[(num-1) *14:(num)*14]
+    if not newuser_list:
+        nullflag = 1
+    return render_to_response("result.html",{
+        "name":admin,
+        "title":"搜索结果如下",
+        "yes":1,
+        "num":num,
+        "key":key,
+        "choose":choose,
+        "nullflag":nullflag,
+        "user_list":newuser_list,
+    })

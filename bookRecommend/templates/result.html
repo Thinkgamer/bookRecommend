@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/css/result.css">
+    <title>后台管理</title>
+</head>
+{% if error %}
+<script>
+alert("{{ error }}");
+</script>
+{% endif %}
+<body>
+<div class="head cen">
+    <span class="left_span">图书推荐系统后台管理</span>
+    <span class="right_span">管理员：{{ name }} &nbsp;&nbsp;|&nbsp;&nbsp; <a href="/default/login">注销</a></span>
+</div>
+<!--中间-->
+<div class="center cen" >
+    <div class="left_center"><!--center left-->
+        <div class="cen" style="width:150px;">
+            <br/>
+            <h3 class="cen center_h3"><a href="/default/amanage/{{ name }}">管理员管理</a></h3>
+                <ul class="center_ul">
+                    <li><a href="/default/aadd/{{ name }}">增加</a></li>
+                    <li><a href="/default/amanage/{{ name }}">查看</a></li>
+                </ul>
+            <hr style="border: 1px #563D64 solid;width: 100%">
+            <h3  class="cen center_h3"><a href="/default/umanage/{{ name }}/1">用户管理</a></h3>
+                <ul class="center_ul">
+                    <li><a href="/default/adduser/{{ name }}">增加</a></li>
+                    <li><a href="/default/umanage/{{ name }}/1">查看</a></li>
+                </ul>
+            <hr style="border: 1px #563D64 solid;width: 100%">
+            <h3 class="cen center_h3"><a href="/default/bmanage/{{ name }}/1">书籍管理</a></h3>
+                <ul class="center_ul">
+                    <li><a href="/default/addbook/{{ name }}">增加</a></li>
+                    <li><a href="/default/bmanage/{{ name }}/1">查看</a></li>
+                </ul>
+            <hr style="border: 1px #563D64 solid;width: 100%">
+            <!--搜索-->
+            <h3 class="cen center_h3"><a href="/default/booksou/{{ name }}/1/1">书籍搜索</a></h3>
+            <h3 class="cen center_h3"><a href="/default/usersou/{{ name }}/1/1">用户搜索</a></h3>
+            <!--end 搜索-->
+        </div>
+    </div><!--end left-->
+
+    <div class="right_center"><!--center right-->
+        <div class="right_head">{{ title }}</div>
+        <hr style="border: 1px rosybrown solid">
+        {% if yes %}
+            {% if user_list %}  {# 修改，查看，用户信息 #}
+            <table width="100%" class="a_table" >
+                <tr align="center">
+                    <td width="16%">用户ID</td>
+                    <td width="16%">用户名</td>
+                    <td width="16%">日期</td>
+                    <td width="16%">工作</td>
+                    <td width="16%">性别</td>
+                    <td width="16%">操作</td>
+                </tr>
+                {% for user in user_list %}
+                <tr align="center">
+                    <td>{{ user.uid }}</td>
+                    <td>{{ user.uname }} </td>
+                    <td>{{ user.uborth }} </td>
+                    <td>{{ user.ujob }} </td>
+                    <td>{{ user.usex }} </td>
+                    <td><a href="/default/deluser/{{ name }}/{{user.uid}}">删除</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="fenye">
+                <a href="/default/usershow/{{ name }}/1/{{ num }}/{{ key }}/{{ choose }}">上一页</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/default/usershow/{{ name }}/2/{{ num }}/{{ key }}/{{ choose }}">下一页</a>
+            </div>
+            {% elif nullflag%}
+                <table width="100%" class="a_table" >
+                    <h2>没有更多<a href="/default/usershow/{{ name }}/1/{{ num }}/{{ key }}/{{ choose }}">Back</a></h2>
+                </table>
+            {% endif %}
+
+            {% if book_list %}  {# 修改，查看，删除图书信息 #}
+            <table width="100%" class="a_table" >
+                <tr align="center" style="color: #EA2000;font-weight: bolder;">
+                    <td width="20%">书名</td>
+                    <td width="20%">作者</td>
+                    <td width="20%">出版社</td>
+                    <td width="20%">出版日期</td>
+                    <td width="20%">操作</td>
+                </tr>
+                {% for book in book_list %}
+                <tr align="center">
+                    <td>{{ book.bname }}</td>
+                    <td>{{ book.bauthor }} </td>
+                    <td>{{ book.bpub }} </td>
+                    <td>{{ book.bpdata }} </td>
+                    <td>
+                        <a href="/default/changebook/{{ name }}/{{ book.bid }}">修改</a> |
+                        <a href="/default/bookdel/{{ name }}/{{ book.bid }}">删除</a>|
+                        <a href="/default/show/{{ name }}/{{ book.bid }}">More</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="fenye">
+                <a href="/default/bookshow/{{ name }}/1/{{ num }}/{{ key }}/{{ choose }}">上一页</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/default/bookshow/{{ name }}/2/{{ num }}/{{ key }}/{{ choose }}">下一页</a>
+            </div>
+            {% elif booknullflag%}
+                <table width="100%" class="a_table" >
+                    <h2>没有更多<a href="/default/bookshow/{{ name }}/1/{{ num }}/{{ key }}/{{ choose }}">Back</a></h2>
+                </table>
+            {% endif %}
+        {% elif no %}
+            <form method="post" action="" class=" cen sousuo">
+            {% if caseflag %} <!--用户搜索-->
+                <div style="height: 30px">
+                    <div style="float: left;margin-left: 100px">
+                        <input type="text" id="key" name="key" class="text_input"/>
+                    </div>
+                    <div style="float: right;margin-right: 205px">
+                        <select name="usercase" style="height: 30px;">
+                            <option id="user" value="userid">用户ID</option>
+                            <option id="user" value="username" >用户名</option>
+                            <option id="user" value="userborth">日期</option>
+                            <option id="user" value="userjob">工作</option>
+                        </select>
+                    </div>
+                </div><!--end 用户搜索-->
+            {% else %}<!--书籍搜索-->
+                <div style="height: 30px">
+                    <div style="float: left;margin-left: 100px"><input type="text" id="key" name="key" class="text_input"/></div>
+                    <div style="float: right;margin-right: 218px">
+                        <select name="bookcase" style="height: 30px;">
+                            <option id="book" value="bookid">书ID</option>
+                            <option id="book" value="bookname">书名</option>
+                            <option id="book" value="bookauthor">作者</option>
+                        </select>
+                    </div>
+                </div><!--end 书籍搜索-->
+            {% endif %}
+            <br><br>
+            <input type="submit" style="margin-left: 40%;width: 70px;height: 30px;" value="搜索">
+            </form>
+        {% endif %}
+    </div><!--end right-->
+
+</div><!--end-->
+
+<div class="foot">
+    <span class="foot_span">版权所用：吕丽 copyfrom 福州大学</span>
+</div>
+</body>
+</html>

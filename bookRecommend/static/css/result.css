@@ -4,6 +4,7 @@ body{
 	padding: 0;
 	border: 0;
 	font: 14px Arial;
+    min-width: 700px;
 }
 
 .cen{
@@ -69,7 +70,7 @@ body{
     font-size: 25px;
     line-height: 40px;
     height: 30px;
-    margin-left: 43%;
+    margin-left: 40%;
 }
 
 .right_span{
@@ -141,6 +142,19 @@ body{
     line-height: 20px;
     margin-top: 10px;
 }
+
+/*搜索*/
+.sousuo{
+    width: 80%;
+    height: 200px;
+    margin-top: 100px;
+}
+.text_input{
+    line-height: 25px;
+    font-size: 18px;
+    width:180%;
+}
+
 
 /*底部*/
 .foot{

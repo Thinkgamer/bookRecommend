@@ -39,20 +39,24 @@ alert("{{ error }}");
             <div>
                 <input type="text" placeholder="出生年份(eg:1993)" required="" id="year" name="year" />
 			</div>
-            <div style="border: 1px #DCDDDF solid; width: 340px;margin-left: 10px;height: 50px;font-size: 20px;line-height: 25px">
-				<span style="float: left">职业：</span>
-                <input type="radio" required="" name="job" id="job" value="学生"/>学生
-                <input type="radio" required="" name="job" id="job" value="教师" />教师
-                <input type="radio" required="" name="job" id="job" value="IT" />IT
-                <input type="radio" required="" name="job" id="job" value="金融管理"/>金融管理
-                <input type="radio" required="" name="job" id="job" value="设计" />设计
-                <input type="radio" required="" name="job" id="job" value="销售" />销售
-                <input type="radio" required="" name="job" id="job" value="其他" />其他
+            <div style="width: 340px;margin-left: 10px;height: 25px;font-size: 20px;line-height: 25px">
+				<span style="float: left;margin-top: 5px">职业：</span>
+                <select name="ujob" style="width: 200px;height: 25px">
+                    <option id="job" value="学生">学生</option>
+                    <option id="job" value="教师">教师</option>
+                    <option id="job" value="IT">IT</option>
+                    <option id="job" value="金融管理">金融管理</option>
+                    <option id="job" value="设计">设计</option>
+                    <option id="job" value="销售">销售</option>
+                    <option id="job" value="其他">其他</option>
+                </select>
 			</div><br/>
-            <div style="border: 1px #DCDDDF solid; width: 340px;margin-left: 10px;height: 25px;font-size: 20px;line-height: 25px">
-				<span style="float: left">性别：</span>
-                <input type="radio" name="sex" id="sex" value ="男"/>男
-                <input type="radio" name="sex" id="sex" value ="女" />女
+            <div style="width: 340px;margin-left: 10px;height: 25px;font-size: 20px;line-height: 25px">
+				<span style="float: left;margin-top: 5px">性别：</span>
+                <select name="sex" style="width: 200px;height: 25px">
+                    <option id="usex" value="男">男</option>
+                    <option id="usex" value="女">女</option>
+                </select>
 			</div>
 			<div style="margin-left: 110px">
 				<input type="submit" value="regeister" onclick="return check()" />

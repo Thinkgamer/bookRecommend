@@ -70,36 +70,17 @@ def regeister(request):
         db,cursor = connect()  #数据库连接
         name = request.POST.get("username") #获取用户名
         year = request.POST.get("year") #获取出生年月
-        job = request.POST.get("job")     #获取job
+        job = request.POST.get("ujob")     #获取job
         sex = request.POST.get("sex")
-        # print name,year,job,sex
-        # #产生用户id
-        # uidSet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',\
-        #           'r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9']
-        # uid = ''
-        # for i in range(8):
-        #     uid += uidSet[random.randint(0,35)]
-        # # print uid,name
         import time
         uid = time.strftime("%Y%m%d%H%M%S", time.localtime(time.time()))
         sql = "insert into user values(%s,%s,%s,%s,%s,%s)"
         arr = (uid,name,"root",year,job,sex)
         cursor.execute(sql,arr)
         close(db,cursor)
-
-        # try:
         from coldstart import coldstart,getItemBook
         bookid_list,userid_list=coldstart(uid)
         itembook_list =getItemBook(bookid_list)
-        # except:
-        #     bookid_list = []
-        #     userid_list = []
-        #     itembook_list = []
-        # for bid in bookid_list:
-        #     print bid,"-----------"
-        #
-        # for id in userid_list:
-        #     print id,"-----------"
         userrecommend.setBookId(bookid_list)
         userrecommend.setUserId(userid_list)
         userrecommend.setSeeBook(getseeBook(row[1]))

@@ -19,22 +19,29 @@ alert("{{ error }}");
 <div class="center cen" >
     <div class="left_center"><!--center left-->
         <div class="cen" style="width:120px;">
-            <br/><br/>
+            <br/>
             <h3 class="cen center_h3"><a href="/default/amanage/{{ name }}">管理员管理</a></h3>
                 <ul class="center_ul">
                     <li><a href="/default/aadd/{{ name }}">增加</a></li>
                     <li><a href="/default/amanage/{{ name }}">查看</a></li>
                 </ul>
+            <hr style="border: 1px #563D64 solid;width: 100%">
             <h3  class="cen center_h3"><a href="/default/umanage/{{ name }}/1">用户管理</a></h3>
                 <ul class="center_ul">
                     <li><a href="/default/adduser/{{ name }}">增加</a></li>
                     <li><a href="/default/umanage/{{ name }}/1">查看</a></li>
                 </ul>
+            <hr style="border: 1px #563D64 solid;width: 100%">
             <h3 class="cen center_h3"><a href="/default/bmanage/{{ name }}/1">书籍管理</a></h3>
                 <ul class="center_ul">
                     <li><a href="/default/addbook/{{ name }}">增加</a></li>
                     <li><a href="/default/bmanage/{{ name }}/1">查看</a></li>
                 </ul>
+            <hr style="border: 1px #563D64 solid;width: 100%">
+            <!--搜索-->
+            <h3 class="cen center_h3"><a href="/default/booksou/{{ name }}/1/1">书籍搜索</a></h3>
+            <h3 class="cen center_h3"><a href="/default/usersou/{{ name }}/1/1">用户搜索</a></h3>
+            <!--end 搜索-->
         </div>
     </div><!--end left-->
 

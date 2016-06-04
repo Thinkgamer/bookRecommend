@@ -275,13 +275,19 @@ a.more:hover{
     text-decoration:none;
     display:block;
 }
-
+.new_prod_bg{
+    width:132px;
+    height:180px;
+    text-align:center;
+    background:url(/static/image/new_prod_box.gif) no-repeat center;
+    position:relative;
+}
 img.thumb{
 padding:10px 0 0 0;
 }
 .new_products{
-clear:both;
-padding:0px;
+    clear:both;
+    padding:0px;
 }
 
 ul.list{

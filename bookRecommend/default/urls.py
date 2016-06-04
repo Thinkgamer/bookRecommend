@@ -19,4 +19,11 @@ urlpatterns = [
     url(r"^show/(.+)/(.+)/$",'default.views.show'),
     url(r"^bookdel/(.+)/(.+)/$",'default.views.bookdel'),
     url(r"^addbook/(.+)/$",'default.views.addbook'),
+
+    url(r"booksou/(.+)/(\d)/(.+)/$","default.views.booksou"),
+    url(r"bookshow/(.+)/(\d)/(.+)/(.+)/(.+)$","default.views.bookshow"),
+
+
+    url(r"usersou/(.+)/(\d)/(.+)/$","default.views.usersou"),
+    url(r"usershow/(.+)/(\d)/(.+)/(.+)/(.+)$","default.views.usershow")
 ]

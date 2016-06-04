@@ -77,10 +77,23 @@
                                 <br/><br/>
                                 日&nbsp; &nbsp;期：<input type="text" id="uborth" name="uborth" required="" value="{{ one.uborth }}" placeholder="eg:1996(只需要年份)" class="form_input">
                                 <br/><br/>
-                                工&nbsp; &nbsp;作：<input type="text" id="ujob" name="ujob" required="" value="{{ one.ujob }}" class="form_input">
-                                <br/><br/>
-                                性&nbsp; &nbsp;别：<input type="text" id="usex" name="usex" required="" value="{{ one.usex }}" class="form_input">
-                                <br/><br/>
+{#                                工&nbsp; &nbsp;作：<input type="text" id="ujob" name="ujob" required="" value="{{ one.ujob }}" class="form_input">#}
+{#                                <br/><br/>#}
+                                工&nbsp; &nbsp;作：
+                                <select name="ujob" style="width: 290px;height: 25px;margin-left: 45px">
+                                    <option id="job" value="学生">学生</option>
+                                    <option id="job" value="教师">教师</option>
+                                    <option id="job" value="IT">IT</option>
+                                    <option id="job" value="金融管理">金融管理</option>
+                                    <option id="job" value="设计">设计</option>
+                                    <option id="job" value="销售">销售</option>
+                                    <option id="job" value="其他">其他</option>
+                                </select><br><br>
+                                性&nbsp; &nbsp;别：
+                                <select name="usex" style="width: 290px;height: 25px;margin-left: 45px">
+                                    <option id="sex" value="男">男</option>
+                                    <option id="sex" value="女">女</option>
+                                </select><br><br>
                                 <input type="submit" class="form_submit">
                             </form>
                         {% endif %}
