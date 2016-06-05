@@ -75,9 +75,14 @@ alert("{{ error }}");
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="/default/usershow/{{ name }}/2/{{ num }}/{{ key }}/{{ choose }}">下一页</a>
             </div>
-            {% elif nullflag%}
+            {% elif nullflag2%}
                 <table width="100%" class="a_table" >
                     <h2>没有更多<a href="/default/usershow/{{ name }}/1/{{ num }}/{{ key }}/{{ choose }}">Back</a></h2>
+                </table>
+
+            {% elif nullflag%}
+                <table width="100%" class="a_table" >
+                    <h2>没有更多<a href="/default/usersou/{{ name }}/1/1">Back</a></h2>
                 </table>
             {% endif %}
 
@@ -109,9 +114,14 @@ alert("{{ error }}");
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="/default/bookshow/{{ name }}/2/{{ num }}/{{ key }}/{{ choose }}">下一页</a>
             </div>
-            {% elif booknullflag%}
+            {% elif booknullflag2%}
                 <table width="100%" class="a_table" >
                     <h2>没有更多<a href="/default/bookshow/{{ name }}/1/{{ num }}/{{ key }}/{{ choose }}">Back</a></h2>
+                </table>
+
+            {% elif booknullflag%}
+                <table width="100%" class="a_table" >
+                    <h2>没有更多<a href="/default/booksou/{{ name }}/1/1">Back</a></h2>
                 </table>
             {% endif %}
         {% elif no %}

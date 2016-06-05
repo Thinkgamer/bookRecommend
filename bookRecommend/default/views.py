@@ -362,22 +362,22 @@ def booksou(request,admin,page,num):
                 book_list.append({"bid":row[0],"bname":row[1],"bauthor":row[2],"bpub":row[4],"bpdata":row[5]})
         close(db,cursor)
         if book_list:  #不为空为1
-            nullflag = 0
+            booknullflag = 0
         else: #为空
-            nullflag = 1
+            booknullflag = 1
         if page == "1":
             num =(int(num) -1) if (int(num) -1) else 1
         else:
             num = int(num)+1
         newbook_list = book_list[(num-1) *12:(num)*12]
         if not book_list:
-            nullflag = 1
+            booknullflag = 1
         return render_to_response("result.html",{
             "name":admin,
             "title":"搜索结果如下",
             "yes":1,
             "num":num,
-            "nullflag":nullflag,
+            "booknullflag":booknullflag,
             "book_list":newbook_list,
             "key":key,
             "choose":choose,
@@ -395,6 +395,7 @@ def bookshow(request,admin,page,num,key,choose):
     db,cursor = connect()
     book_list = []
     pam = "%" + key + "%"
+    print key,choose,choose=="bookid"
     if choose=="bookid":
         sql = "select * from book where bookid like %s"
     elif choose=="bookname":
@@ -411,9 +412,9 @@ def bookshow(request,admin,page,num,key,choose):
         num = int(num)+1
     newbook_list = book_list[(num-1) *12:(num)*12]
     if newbook_list:
-        booknullflag = 0
+        booknullflag2 = 0
     else: #为空
-        booknullflag = 1
+        booknullflag2 = 1
     return render_to_response("result.html",{
         "name":admin,
         "title":"搜索结果如下",
@@ -421,7 +422,7 @@ def bookshow(request,admin,page,num,key,choose):
         "num":num,
         "key":key,
         "choose":choose,
-        "booknullflag":booknullflag,
+        "booknullflag2":booknullflag2,
         "book_list":newbook_list,
     })
 
@@ -495,16 +496,16 @@ def usershow(request,admin,page,num,key,choose):
             user_list.append({"uid":row[0],"uname":row[1],"uborth":row[3],"ujob":row[4],"usex":row[5]})
     close(db,cursor)
     if user_list:  #不为空为1
-        nullflag = 0
+        nullflag2 = 0
     else: #为空
-        nullflag = 1
+        nullflag2 = 1
     if page == "1":
         num =(int(num) -1) if (int(num) -1) else 1
     else:
         num = int(num)+1
     newuser_list = user_list[(num-1) *14:(num)*14]
     if not newuser_list:
-        nullflag = 1
+        nullflag2 = 1
     return render_to_response("result.html",{
         "name":admin,
         "title":"搜索结果如下",
@@ -512,6 +513,6 @@ def usershow(request,admin,page,num,key,choose):
         "num":num,
         "key":key,
         "choose":choose,
-        "nullflag":nullflag,
+        "nullflag2":nullflag2,
         "user_list":newuser_list,
     })
