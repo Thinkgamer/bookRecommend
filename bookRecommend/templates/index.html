@@ -50,7 +50,7 @@
                     <div class="dis"  id="{{ one.bid }}">
                         <div class="imgslider">
                             <h2>推荐理由</h2>
-                            <p>用户《{{ one.uname }}》与你的匹配度为{{ one.sim }}</p><p>该用户给此书《{{ one.bname }}》打了{{ one.score }}分，特为你推荐</p>
+                            <p>用户{{ one.uname }}与你的综合匹配度为{{ one.sim }}</p><p>给此书《{{ one.bname }}》平均打了{{ one.score }}分，特为你推荐</p>
                         </div>
                     </div>
                     <div class="prod_img" onmouseover="goin({{ one.bid }})" onmouseleave="goout({{ one.bid }})"><a href="/index/details/{{ uid }}/{{ one.bid }}"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title="" border="0" /></a></div>

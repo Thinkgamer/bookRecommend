@@ -47,3 +47,14 @@ def getYouLoveBook(bookid_list):
             new_love.append(i)
 
     return new_love
+
+def getSeeBook():
+    from login.views import connect,close
+    seeBook = []
+    db,cursor = connect()
+    sql = "select * from book order by rand() limit 10"
+    cursor.execute(sql)
+    for row in cursor.fetchall():
+        seeBook.append({"bid":row[0],"bname":row[1],"bdisnum":row[-2],"bshow":row[-1]})
+    close(db,cursor)
+    return seeBook

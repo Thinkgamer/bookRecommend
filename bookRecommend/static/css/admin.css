@@ -4,6 +4,7 @@ body{
 	padding: 0;
 	border: 0;
 	font: 14px Arial;
+	font-family: 'Open Sans', Arial, Helvetica, Sans-serif, Verdana, Tahoma;
 }
 
 .cen{
@@ -12,9 +13,28 @@ body{
 /*头部*/
 .head{
     width:100%;
-    height:30px;
+    height:50px;
     background-color: #627291;
 }
+.left_span{
+    float: left;
+    height:50px;
+    margin-left: 30px;
+    line-height: 50px;
+    color: #FFFFFF;
+    font-size: 22px;
+}
+.right_span{
+    float: right;
+    margin-right: 40px;
+    font-size: 22px;
+    line-height: 50px;
+    color: #FFFFFF;
+}
+.right_span a {
+    color: #FFFFFF;
+}
+
 
 /*中间*/
 .center{
@@ -29,13 +49,6 @@ body{
     border: 1px #b2b2b2 solid;
     border-width: 0px 1px 0px 0px;
     font-size: 20px;
-    line-height: 30px;
-}
-.left_span{
-    float: left;
-    margin-left: 30px;
-    color: #FFFFFF;
-    font-size: 18px;
     line-height: 30px;
 }
 
@@ -70,17 +83,6 @@ body{
     line-height: 40px;
     height: 30px;
     margin-left: 43%;
-}
-
-.right_span{
-    float: right;
-    margin-right: 40px;
-    font-size: 18px;
-    line-height: 30px;
-    color: #FFFFFF;
-}
-.right_span a {
-    color: #FFFFFF;
 }
 
 .right_user{

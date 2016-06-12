@@ -113,4 +113,5 @@ def getItemBook(bid_list):
             bname = row[0]
 
         bookid_list.append({"bsim":0.8,"bname":bname,"bid":bid})
+    close(db,cursor)
     return  bookid_list

@@ -263,9 +263,23 @@ ul.list li a{
 }
 
 ul.list li a:hover{
-text-decoration:underline;
+    text-decoration:underline;
 }
-
+.dis{
+    display: none;
+}
+.imgslider{
+    margin-left: 100px;
+    margin-top: -150px;
+    height: 130px;
+    width: 150px;
+    position: absolute;
+    background-color: aquamarine;
+    opacity: 1;
+    z-index: 1;
+    border-radius: 10px;
+    font-size: 15px;
+}
 
 .hotmore a{
     font-size: 25px;

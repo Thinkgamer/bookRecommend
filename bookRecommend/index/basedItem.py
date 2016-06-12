@@ -75,17 +75,18 @@ def recommend(uid):
     Item.ItemSimilarity()
     recommedDic = Item.Recommend(uid)
     for k,v in recommedDic.iteritems():
-        # print k,"\t",v
         db,cursor = connect()
         sql = "select bookname from book where bookid = '"+k+"'"
         n = cursor.execute(sql)
         if n ==1:
             for row in cursor.fetchall():
                 bname = row[0]
+            bookid_list.append({"bsim":v,"bname":bname,"bid":k})
         else:
             sql_1 = "select bookname from newbook where bookid = '"+k+"'"
             cursor.execute(sql_1)
             for row_1 in cursor.fetchall():
                 bname = row_1[0]
-        bookid_list.append({"bsim":v,"bname":bname,"bid":k})
+            bookid_list.append({"bsim":v,"bname":bname,"bid":k})
+        # print k,"=======",v
     return bookid_list

@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/static/css/result.css">
+    <link rel="stylesheet"  href="/static/css/admin_left.css" media="screen" type="text/css" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src='/static/js/jquery.js'></script>
+    <script src="/static/js/admin.js"></script>
     <title>后台管理</title>
 </head>
 {% if error %}
@@ -18,35 +22,60 @@ alert("{{ error }}");
 <!--中间-->
 <div class="center cen" >
     <div class="left_center"><!--center left-->
-        <div class="cen" style="width:150px;">
-            <br/>
-            <h3 class="cen center_h3"><a href="/default/amanage/{{ name }}">管理员管理</a></h3>
-                <ul class="center_ul">
-                    <li><a href="/default/aadd/{{ name }}">增加</a></li>
-                    <li><a href="/default/amanage/{{ name }}">查看</a></li>
-                </ul>
-            <hr style="border: 1px #563D64 solid;width: 100%">
-            <h3  class="cen center_h3"><a href="/default/umanage/{{ name }}/1">用户管理</a></h3>
-                <ul class="center_ul">
-                    <li><a href="/default/adduser/{{ name }}">增加</a></li>
-                    <li><a href="/default/umanage/{{ name }}/1">查看</a></li>
-                </ul>
-            <hr style="border: 1px #563D64 solid;width: 100%">
-            <h3 class="cen center_h3"><a href="/default/bmanage/{{ name }}/1">书籍管理</a></h3>
-                <ul class="center_ul">
-                    <li><a href="/default/addbook/{{ name }}">增加</a></li>
-                    <li><a href="/default/bmanage/{{ name }}/1">查看</a></li>
-                </ul>
-            <hr style="border: 1px #563D64 solid;width: 100%">
-            <!--搜索-->
-            <h3 class="cen center_h3"><a href="/default/booksou/{{ name }}/1/1">书籍搜索</a></h3>
-            <h3 class="cen center_h3"><a href="/default/usersou/{{ name }}/1/1">用户搜索</a></h3>
-            <!--end 搜索-->
-        </div>
+        <ul id="accordion" class="accordion">
+		<li>
+			<div class="link"><i class="fa fa-paint-brush"></i>管理员管理<i class="fa fa-chevron-down"></i></div>
+			<ul class="submenu">
+				<li><a href="/default/aadd/{{ name }}">增加</a></li>
+				<li><a href="/default/amanage/{{ name }}">查看</a></li>
+			</ul>
+		</li>
+		<li>
+			<div class="link"><i class="fa fa-code"></i>用户管理<i class="fa fa-chevron-down"></i></div>
+			<ul class="submenu">
+				<li><a href="/default/adduser/{{ name }}">增加</a></li>
+				<li><a href="/default/umanage/{{ name }}/1">查看</a></li>
+			</ul>
+		</li>
+		<li>
+			<div class="link"><i class="fa fa-mobile"></i>书籍管理<i class="fa fa-chevron-down"></i></div>
+			<ul class="submenu">
+				<li><a href="/default/addbook/{{ name }}">增加</a></li>
+				<li><a href="/default/bmanage/{{ name }}/1">查看</a></li>
+			</ul>
+		</li>
+		<li><div class="link"><i class="fa fa-globe"></i><a href="/default/booksou/{{ name }}/1/1">书籍搜索</a><i class="fa fa-chevron-down"></i></div></li>
+        <li><div class="link"><i class="fa fa-globe"></i><a href="/default/usersou/{{ name }}/1/1">用户搜索</a><i class="fa fa-chevron-down"></i></div></li>
+	    </ul>
+{#        <div class="cen" style="width:120px;">#}
+{#            <br/>#}
+{#            <h3 class="cen center_h3"><a href="/default/amanage/{{ name }}">管理员管理</a></h3>#}
+{#                <ul class="center_ul">#}
+{#                    <li><a href="/default/aadd/{{ name }}">增加</a></li>#}
+{#                    <li><a href="/default/amanage/{{ name }}">查看</a></li>#}
+{#                </ul>#}
+{#            <hr style="border: 1px #563D64 solid;width: 100%">#}
+{#            <h3  class="cen center_h3"><a href="/default/umanage/{{ name }}/1">用户管理</a></h3>#}
+{#                <ul class="center_ul">#}
+{#                    <li><a href="/default/adduser/{{ name }}">增加</a></li>#}
+{#                    <li><a href="/default/umanage/{{ name }}/1">查看</a></li>#}
+{#                </ul>#}
+{#            <hr style="border: 1px #563D64 solid;width: 100%">#}
+{#            <h3 class="cen center_h3"><a href="/default/bmanage/{{ name }}/1">书籍管理</a></h3>#}
+{#                <ul class="center_ul">#}
+{#                    <li><a href="/default/addbook/{{ name }}">增加</a></li>#}
+{#                    <li><a href="/default/bmanage/{{ name }}/1">查看</a></li>#}
+{#                </ul>#}
+{#            <hr style="border: 1px #563D64 solid;width: 100%">#}
+{#            <!--搜索-->#}
+{#            <h3 class="cen center_h3"><a href="/default/booksou/{{ name }}/1/1">书籍搜索</a></h3>#}
+{#            <h3 class="cen center_h3"><a href="/default/usersou/{{ name }}/1/1">用户搜索</a></h3>#}
+{#            <!--end 搜索-->#}
+{#        </div>#}
     </div><!--end left-->
 
     <div class="right_center"><!--center right-->
-        <div class="right_head">{{ title }}</div>
+        <div class="right_head">{{ title }}</div><br/>
         <hr style="border: 1px rosybrown solid">
         {% if yes %}
             {% if user_list %}  {# 修改，查看，用户信息 #}
@@ -131,8 +160,8 @@ alert("{{ error }}");
                     <div style="float: left;margin-left: 100px">
                         <input type="text" id="key" name="key" class="text_input"/>
                     </div>
-                    <div style="float: right;margin-right: 205px">
-                        <select name="usercase" style="height: 30px;">
+                    <div style="float: right;margin-right: 210px">
+                        <select name="usercase" style="height: 28px;">
                             <option id="user" value="userid">用户ID</option>
                             <option id="user" value="username" >用户名</option>
                             <option id="user" value="userborth">日期</option>
@@ -143,8 +172,8 @@ alert("{{ error }}");
             {% else %}<!--书籍搜索-->
                 <div style="height: 30px">
                     <div style="float: left;margin-left: 100px"><input type="text" id="key" name="key" class="text_input"/></div>
-                    <div style="float: right;margin-right: 218px">
-                        <select name="bookcase" style="height: 30px;">
+                    <div style="float: right;margin-right: 223px">
+                        <select name="bookcase" style="height: 28px;">
                             <option id="book" value="bookid">书ID</option>
                             <option id="book" value="bookname">书名</option>
                             <option id="book" value="bookauthor">作者</option>

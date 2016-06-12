@@ -284,11 +284,7 @@ def changebook(request,admin,bid):
         bauthor = request.POST.get("bauthor").encode('utf8')
         btran = request.POST.get("btran").encode('utf8')
         bpub = request.POST.get("bpub").encode('utf8')
-        # bpdata = request.POST.get("bpdata").encode('gbk')
-        # #获取出版日期中的数字
-        # bpdata = request.POST.get("bpdata")
-        # import re
-        bpdata = "20130513"
+        bpdata = request.POST.get("bpdata").encode('gbk')
         bscore = request.POST.get("bscore").encode('utf8')
         bdisnum = request.POST.get("bdisnum").encode('utf8')
         bshow = request.POST.get("bshow").encode('utf8')

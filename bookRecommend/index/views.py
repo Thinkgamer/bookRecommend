@@ -62,7 +62,7 @@ def more(request,uid):
         "uid":uid,
         "usersim_list":usersim_list,
         "title":"猜你喜欢",
-        "book_list":loveLook_list,
+        "book_list":new_love,
     })
 
 @csrf_exempt
@@ -91,7 +91,7 @@ def details(request,uid,bid):
     if request.method=="POST":
         score = request.POST.get("score")
         try:
-            score = float(score) if float(score)<5.0 else 3.0
+            score = float(score) if float(score)<=5.0 and float(score)>=0.0 else 3.0
         except:
             return  render_to_response("details.html",{
                 "username":username,
@@ -182,6 +182,8 @@ def hot(request,uid):
 def change(request,uid):
     from login.views import userrecommend
     username = getName(uid)
+    usersim_list = []
+    loveLook_list =[]
     #获得相似用户列表
     uid_list=userrecommend.userid_list
     usersim_list = get.getSimUser(uid_list)
@@ -223,16 +225,20 @@ def change(request,uid):
         one["uborth"] = borth
         one["ujob"] = job
         one["usex"] = sex
-        #每次修改信息触发一次推荐
-        from login.coldstart import coldstart,getItemBook
-        bookid_list1,userid_list1=coldstart(uid1)
-        itembook_list =getItemBook(bookid_list1)
-        userrecommend.setBookId(bookid_list1)
-        userrecommend.setUserId(userid_list1)
-        userrecommend.setItemBook(itembook_list)
-        usersim_list1 = get.getSimUser(userid_list1)
-        #获取你喜欢的书籍推荐
-        loveLook_list1 = getYouLoveBook(userrecommend.bookid_list)
+        if len(usersim_list)<15:
+            #每次修改信息触发一次推荐
+            from login.coldstart import coldstart,getItemBook
+            bookid_list1,userid_list1=coldstart(uid1)
+            itembook_list =getItemBook(bookid_list1)
+            userrecommend.setBookId(bookid_list1)
+            userrecommend.setUserId(userid_list1)
+            userrecommend.setItemBook(itembook_list)
+            usersim_list1 = get.getSimUser(userid_list1)
+            #获取你喜欢的书籍推荐
+            loveLook_list1 = getYouLoveBook(userrecommend.bookid_list)
+        else:
+            usersim_list1 = usersim_list
+            loveLook_list1 = loveLook_list
         return render_to_response("more.html",{
             "changeokflag":1,
             "changeflag":1,

@@ -9,8 +9,6 @@ import index.details as get
 import random
 from index.basedItem import recommend
 from django.views.decorators.csrf import csrf_exempt
-
-
 #连接数据库
 def connect():
     con = MySQLdb.connect("127.0.0.1","root","root","bookrecommend",charset="utf8")
@@ -108,7 +106,6 @@ def center(request,uid):
         "book_list":userrecommend.seeBook_list,
     })
 
-
 def otherCen(request,uid,otherid):
     #获得相似用户列表
     uid_list=userrecommend.userid_list
@@ -129,11 +126,11 @@ def otherCen(request,uid,otherid):
 
 def see(request,uid):
     username = getName(uid)
-    from index.newbook import getHotBook
+    from index.newbook import getSeeBook
     #获得hot book列表
-    hotBook_list =getHotBook()
+    seeBook_list =getSeeBook()
     return render_to_response("see.html",{
-        "book_list":hotBook_list,
+        "book_list":seeBook_list,
         "uid":uid,
         "username":username
     })

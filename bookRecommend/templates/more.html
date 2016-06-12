@@ -47,7 +47,7 @@
        	    <div class="left_content">
     	        <div class="title">
                     <span class="title_icon"><img src="/static/image/bullet1.gif" alt="" title="" /></span>
-                    {{ title }}
+                    {{ username }} | {{ title }}
                 </div>
                 <br /><br /><br /><br /><br />
                 {% if changeflag %}
@@ -81,6 +81,7 @@
 {#                                <br/><br/>#}
                                 工&nbsp; &nbsp;作：
                                 <select name="ujob" style="width: 290px;height: 25px;margin-left: 45px">
+                                    <option id="job" value="{{ one.ujob }}" style="background-color: #00aeef">{{ one.ujob }}  (你当前的职业信息)</option>
                                     <option id="job" value="学生">学生</option>
                                     <option id="job" value="教师">教师</option>
                                     <option id="job" value="IT">IT</option>
@@ -91,10 +92,11 @@
                                 </select><br><br>
                                 性&nbsp; &nbsp;别：
                                 <select name="usex" style="width: 290px;height: 25px;margin-left: 45px">
+                                    <option id="sex" value="{{ one.usex }}">{{ one.usex }}  (你当前的性别信息)</option>
                                     <option id="sex" value="男">男</option>
                                     <option id="sex" value="女">女</option>
                                 </select><br><br>
-                                <input type="submit" class="form_submit">
+                                <input type="submit" class="form_submit" value="提交">
                             </form>
                         {% endif %}
                     </div>
@@ -123,7 +125,7 @@
                         <div class="dis"  id="{{ one.bid }}">
                             <div class="img">
                                 <h2>推荐理由</h2>
-                                <p>用户{{ one.uname }}与你的匹配度为{{ one.sim }}</p><p>该用户给此书《{{ one.bname }}》打了{{ one.score }}分，特为你推荐</p>
+                                <p>用户{{ one.uname }}与你的综合匹配度为{{ one.sim | floatformat:"3"}}</p><p>给此书《{{ one.bname }}》平均打了{{ one.score | floatformat:"3" }}分，特为你推荐</p>
                             </div>
                         </div>
 

@@ -93,7 +93,20 @@ class recommender:
 
         distances.sort(key=lambda artistTuple: artistTuple[1],reverse=True)
         return distances
-    
+
+    # def getOtherUserScore(self,bid):
+    #     db,cursor = connect()
+    #     sql = "select bookscore,bookdisnum from book where bookid='"+bid+"'"
+    #     if cursor.execute(sql):
+    #         for row in cursor.fetchall():
+    #             score = row[0]
+    #             disnum = int(row[1])/1000
+    #     else:
+    #         score = 0
+    #         disnum = 0
+    #     close(db,cursor)
+    #     return score,disnum
+
     #推荐算法的主体函数
     def recommend(self, user):
         #定义一个字典，用来存储推荐的书单和分数
@@ -101,7 +114,7 @@ class recommender:
         #计算出user与所有其他用户的相似度，返回一个list
         nearest = self.computeNearestNeighbor(user)
         # print nearest
-        
+        #用户user看过的书
         userRatings = self.data[user]
 #         print userRatings
         totalDistance = 0.0
@@ -125,17 +138,15 @@ class recommender:
 
             for artist in neighborRatings:
                 if not artist in userRatings:
+                    # otherscore,disnum =self.getOtherUserScore(artist)
                     if artist not in recommendations:
-                        recommendations[artist] = (neighborRatings[artist] * weight)
+                        recommendations[artist] =(neighborRatings[artist] * weight)
                     else:
                         recommendations[artist] = (recommendations[artist]+ neighborRatings[artist] * weight)
-
         recommendations = list(recommendations.items())
         recommendations = [(self.convertProductID2name(k), v)for (k, v) in recommendations]
-        
         #做了一个排序
         recommendations.sort(key=lambda artistTuple: artistTuple[1], reverse = True)
-
         return recommendations[:self.n],nearest
  
 def adjustrecommend(id):

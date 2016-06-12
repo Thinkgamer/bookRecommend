@@ -15,7 +15,23 @@ if(confirm("{{ error }}")){
 alert("{{ error }}");
 </script>
 {% endif %}
+<script>
+    var a=document.getElementById("slider");
+  	function goin(a){
+  		var b=document.getElementById(a);
+  		if(b.hasAttribute("class")){
+       		b.removeAttribute("class","dis");
+        }
 
+    }
+    function goout(a){
+        var b=document.getElementById(a);
+        if(!b.hasAttribute("class")){
+       		b.setAttribute("class","dis");
+       	}
+
+    }
+</script>
 </head>
 <body>
     <div id="wrap">
@@ -137,8 +153,14 @@ alert("{{ error }}");
                             <li>
                                 <a href="/index/details/{{ uid }}/{{ one.bid }}">《{{ one.bname }}》</a><br/>
                                 <a>推荐指数：{{ one.bsim | floatformat:2}}</a><br/>
-                                <span style="margin-left: 10%"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title=""></span>
+                                <span style="margin-left: 10%" onmouseover="goin({{ one.bid }})" onmouseleave="goout({{ one.bid }})"><img src="/static/image/book/{{ one.bid }}.jpg" alt="" title=""></span>
                             </li>
+                            <div class="dis" id="{{ one.bid }}">
+                                <div class="imgslider">
+                                <h3>推荐理由</h3>
+                                <p>根据你此次登录之前的打分记录为你推荐《{{ one.bname }}》，推荐指数{{ one.bsim | floatformat:"2" }}特为你推荐</p>
+                                </div>
+                            </div>
                         {% endfor %}
                     </ul>
                     {% else %}
