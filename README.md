@@ -16,4 +16,4 @@ bookrecommend：是项目综合展示的目录，是一个django的工程，使�
 
 算法原型：协同过滤基于items的推荐算法<br><br>
 
-3：爬取数据部分代码暂时不提供，有需要的话联系邮箱：thinkgamer_gyt@gmail.com
+3：爬取数据部分代码暂时不提供，有需要的话联系邮箱：thinkgamer@163.com
